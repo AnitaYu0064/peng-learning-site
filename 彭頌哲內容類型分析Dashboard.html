@@ -41,7 +41,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
 .site-header {
   background: var(--header-bg);
   color: #fff;
-  padding: 22px 32px;
+  padding: 24px 34px;
   display: flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;
   position: sticky; top:0; z-index:100;
   box-shadow: 0 2px 20px rgba(30,27,75,0.3);
@@ -57,7 +57,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
   display:flex; flex-wrap:wrap; gap:12px; align-items:center;
 }
 .filter-group { display:flex; align-items:center; gap:7px; }
-.filter-group label { font-size:13px; color:rgba(255,255,255,0.65); white-space:nowrap; }
+.filter-group label { font-size:15px; color:rgba(255,255,255,0.65); white-space:nowrap; }
 .filter-group select {
   background: rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25);
   color:#fff; border-radius:7px; padding: 7px 12px; font-size: 13px; cursor:pointer;
@@ -141,9 +141,9 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
 .cluster-card {
   border-radius: 10px; padding: 16px; border: 2px solid;
 }
-.cluster-card h4 { font-size:15px; font-weight:800; margin-bottom:8px; }
+.cluster-card h4 { font-size:17px; font-weight:800; margin-bottom:8px; }
 .cluster-card .tags { display:flex; flex-wrap:wrap; gap:5px; }
-.cluster-card .tag { font-size:13px; background:rgba(255,255,255,0.7); padding:4px 10px; border-radius:12px; color:inherit; font-weight:600; }
+.cluster-card .tag { font-size:15px; background:rgba(255,255,255,0.7); padding:4px 10px; border-radius:12px; color:inherit; font-weight:600; }
 
 /* ══════════════════════════════════════════
    INSIGHT BLOCKS
@@ -151,28 +151,28 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
 .insight { border-radius:10px; padding:18px 20px; margin-bottom:12px; }
 .insight.obs  { background:#eef9f2; border-left:4px solid #2db877; }
 .insight.inf  { background:#fff8ee; border-left:4px solid #f0a020; }
-.insight .tag-pill { display:inline-block; padding:3px 10px; border-radius:12px; font-size:12px; font-weight:800; margin-bottom:8px; }
+.insight .tag-pill { display:inline-block; padding:3px 10px; border-radius:12px; font-size:14px; font-weight:800; margin-bottom:8px; }
 .tag-obs { background:#d4f5e6; color:#1a8050; }
 .tag-inf { background:#ffe8c0; color:#a06010; }
-.insight h4 { font-size:15px; font-weight:800; margin-bottom:6px; color:var(--text); }
-.insight p  { font-size:14px; color:var(--text2); line-height:1.75; }
+.insight h4 { font-size:17px; font-weight:800; margin-bottom:6px; color:var(--text); }
+.insight p  { font-size:16px; color:var(--text2); line-height:1.75; }
 .insight p strong { color: var(--text); }
 
 /* ══════════════════════════════════════════
    QUESTION AXIS
 ══════════════════════════════════════════ */
 .axis-row { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
-.axis-name { font-size:15px; font-weight:700; color:var(--text); min-width:190px; }
+.axis-name { font-size:17px; font-weight:700; color:var(--text); min-width:190px; }
 .axis-bar-wrap { flex:1; background:var(--bg2); border-radius:6px; height:24px; overflow:hidden; }
 .axis-bar-fill { height:100%; border-radius:6px; transition:width 0.5s ease; }
-.axis-count { font-size:14px; color:var(--text3); min-width:40px; text-align:right; font-weight:800; }
+.axis-count { font-size:16px; color:var(--text3); min-width:40px; text-align:right; font-weight:800; }
 
 /* ══════════════════════════════════════════
    STYLE EXAMPLES
 ══════════════════════════════════════════ */
 .example-list { list-style:none; }
 .example-list li {
-  font-size:14px; color:var(--text2); padding:9px 0; border-bottom:1px solid var(--border);
+  font-size:16px; color:var(--text2); padding:9px 0; border-bottom:1px solid var(--border);
   line-height:1.7; display:flex; gap:8px; align-items:flex-start;
 }
 .example-list li::before { content:'「'; color:var(--text3); flex-shrink:0; }
@@ -183,10 +183,10 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
    PERSISTENCE BARS
 ══════════════════════════════════════════ */
 .persist-row { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
-.persist-name { font-size:15px; color:var(--text); min-width:150px; font-weight:700; }
+.persist-name { font-size:17px; color:var(--text); min-width:150px; font-weight:700; }
 .persist-dots { display:flex; gap:4px; }
 .persist-dot { width:14px; height:14px; border-radius:3px; }
-.persist-label { font-size:13px; color:var(--text3); }
+.persist-label { font-size:15px; color:var(--text3); }
 
 /* ══════════════════════════════════════════
    CONCLUSION
@@ -195,16 +195,16 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
   background: linear-gradient(135deg, #f0eeff 0%, #eef6ff 100%);
   border: 2px solid #c8c0ff; border-radius: var(--radius); padding: 24px; margin-bottom:16px;
 }
-.conclusion-card h4 { font-size:16px; font-weight:900; color:var(--accent); margin-bottom:12px; }
-.conclusion-card p  { font-size:15px; color:var(--text2); line-height:1.9; }
+.conclusion-card h4 { font-size:18px; font-weight:900; color:var(--accent); margin-bottom:12px; }
+.conclusion-card p  { font-size:17px; color:var(--text2); line-height:1.9; }
 .conclusion-card p strong { color:var(--text); }
 
 /* ══════════════════════════════════════════
    CHANNEL TABLE
 ══════════════════════════════════════════ */
 .ch-table { width:100%; border-collapse:collapse; }
-.ch-table th { text-align:left; padding:10px 12px; font-size:13px; text-transform:uppercase; letter-spacing:0.6px; color:var(--text3); font-weight:700; border-bottom:2px solid var(--border); }
-.ch-table td { padding:10px 12px; font-size:15px; color:var(--text2); border-bottom:1px solid var(--border); }
+.ch-table th { text-align:left; padding:10px 12px; font-size:15px; text-transform:uppercase; letter-spacing:0.6px; color:var(--text3); font-weight:700; border-bottom:2px solid var(--border); }
+.ch-table td { padding:10px 12px; font-size:17px; color:var(--text2); border-bottom:1px solid var(--border); }
 .ch-table tr:hover td { background:var(--bg2); }
 .ch-table tr:last-child td { border-bottom:none; }
 .ch-table .ch-name { font-weight:700; color:var(--text); }
@@ -213,7 +213,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
    FOOTER
 ══════════════════════════════════════════ */
 .footer {
-  text-align:center; color:var(--text3); font-size:13px; padding:28px 0 50px;
+  text-align:center; color:var(--text3); font-size:15px; padding:28px 0 50px;
   border-top:1px solid var(--border); margin-top:8px;
 }
 
@@ -223,12 +223,18 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
 .divider { height:1px; background:var(--border); margin:12px 0; }
 .pill {
   display:inline-block; padding:4px 12px; border-radius:20px;
-  font-size:13px; font-weight:700;
+  font-size:15px; font-weight:700;
 }
 .number-big { font-size:40px; font-weight:900; color:var(--accent); }
+
+    .site-topbar{padding:18px 28px 0; max-width:1440px; margin:0 auto; display:flex;}
+    .home-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#fff;color:#111827 !important;padding:12px 18px;border-radius:14px;font-size:18px;font-weight:800;border:1px solid rgba(17,24,39,.12);box-shadow:0 8px 24px rgba(15,23,42,.08);}
+    .home-btn:hover{background:#f9fafb;}
+
 </style>
 </head>
 <body>
+<div class="site-topbar"><a class="home-btn" href="index.html">← 返回首頁</a></div>
 
 <!-- ════════════════════════════════════════════ HEADER -->
 <header class="site-header">
@@ -272,7 +278,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
   <div class="kpi" style="--kc:#3daee8">
     <div class="kpi-icon">🏷️</div>
     <div class="kpi-label">主要內容風格</div>
-    <div class="kpi-value" style="font-size:22px;padding-top:4px">8 種</div>
+    <div class="kpi-value" style="font-size:28px;padding-top:4px">8 種</div>
     <div class="kpi-sub">思辨型為最高知識密度風格</div>
   </div>
   <div class="kpi" style="--kc:#2db877">
@@ -290,7 +296,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
   <div class="kpi" style="--kc:#e86060">
     <div class="kpi-icon">🧠</div>
     <div class="kpi-label">核心問題軸線</div>
-    <div class="kpi-value" style="font-size:17px;padding-top:6px">人生意義</div>
+    <div class="kpi-value" style="font-size:22px;padding-top:6px">人生意義</div>
     <div class="kpi-sub">162 部影片觸及此問題</div>
   </div>
 </div>
@@ -432,7 +438,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
   <div class="grid-2" style="align-items:center;">
     <div class="chart-h380"><canvas id="radarChart"></canvas></div>
     <div>
-      <div style="font-size:15px;font-weight:800;margin-bottom:16px;color:var(--text);">三個時期的學習偏好對比</div>
+      <div style="font-size:17px;font-weight:800;margin-bottom:16px;color:var(--text);">三個時期的學習偏好對比</div>
       <div class="insight obs" style="margin-bottom:12px;">
         <span class="tag-pill tag-obs">早期（2025上半年）</span>
         <p>娛樂為主，知識類以輕科普和社會觀察為主。思辨型幾乎不存在。這是學習路徑的「前熱身期」。</p>
@@ -968,7 +974,7 @@ function renderStyleTabs() {
   const tabs = document.getElementById('style-tabs');
   tabs.innerHTML = styles.map((s,i)=>`
     <div class="style-tab" onclick="showStyleExample('${s}',this)" style="
-      padding:11px 18px; border-radius:8px; cursor:pointer; font-size:15px; font-weight:700;
+      padding:11px 18px; border-radius:8px; cursor:pointer; font-size:17px; font-weight:700;
       background:${i===0?STYLE_COLORS[s]+'22':'transparent'};
       border:2px solid ${STYLE_COLORS[s]}66;
       color:${STYLE_COLORS[s]};
@@ -989,8 +995,8 @@ function showStyleExample(style, el) {
   const n = STYLE_DATA[style]||0;
   document.getElementById('style-examples').innerHTML = `
     <div style="margin-bottom:12px;">
-      <div style="font-size:17px;font-weight:800;color:${c};margin-bottom:6px;">${style}（共 ${n} 部影片）</div>
-      <div style="font-size:14px;color:#7a84a8;">以下為代表性影片標題：</div>
+      <div style="font-size:22px;font-weight:800;color:${c};margin-bottom:6px;">${style}（共 ${n} 部影片）</div>
+      <div style="font-size:16px;color:#7a84a8;">以下為代表性影片標題：</div>
     </div>
     <ul class="example-list">
       ${examples.map(e=>`<li>${e}</li>`).join('')}
@@ -1007,7 +1013,7 @@ function renderPersistence() {
       <div style="flex:1;background:#e8ebf5;border-radius:5px;height:20px;overflow:hidden;">
         <div style="height:100%;width:${(t.months/MAX_MONTHS*100)}%;background:${t.color};border-radius:5px;transition:width 0.5s;"></div>
       </div>
-      <div style="font-size:14px;color:#7a84a8;min-width:60px;text-align:right;font-weight:800;">${t.months}個月</div>
+      <div style="font-size:16px;color:#7a84a8;min-width:60px;text-align:right;font-weight:800;">${t.months}個月</div>
       <span class="pill" style="background:${TYPE_COLORS[t.type]}22;color:${TYPE_COLORS[t.type]};min-width:72px;text-align:center;">${t.type}</span>
     </div>`).join('');
 }

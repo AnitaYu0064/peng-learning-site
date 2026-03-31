@@ -14,42 +14,48 @@ body { margin:0; font-family: -apple-system,BlinkMacSystemFont,'Segoe UI','Noto 
 .header { display:flex; gap:16px; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; margin-bottom:20px; }
 .h1 { font-size: 32px; font-weight: 800; margin:0 0 8px; }
 .sub { color:var(--muted); line-height:1.6; max-width:920px; }
-.note { background:#fff7ed; color:#9a3412; border:1px solid #fdba74; padding:12px 14px; border-radius:12px; font-size:14px; }
+.note { background:#fff7ed; color:#9a3412; border:1px solid #fdba74; padding:12px 14px; border-radius:12px; font-size:16px; }
 .grid { display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; }
 .card { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:18px; box-shadow:0 6px 20px rgba(0,0,0,.04); }
 .kpi { grid-column: span 3; }
-.kpi .label { color:var(--muted); font-size:13px; margin-bottom:8px; }
-.kpi .value { font-size:32px; font-weight:800; }
+.kpi .label { color:var(--muted); font-size:15px; margin-bottom:8px; }
+.kpi .value { font-size:38px; font-weight:800; }
 .filters { grid-column: 1 / -1; display:grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap:12px; }
-.filter label { display:block; font-size:12px; color:var(--muted); margin-bottom:6px; }
-.filter input, .filter select { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:#fff; font-size:14px; }
+.filter label { display:block; font-size:14px; color:var(--muted); margin-bottom:6px; }
+.filter input, .filter select { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:12px; background:#fff; font-size:16px; }
 .chart-card { grid-column: span 6; }
 .table-card { grid-column: 1 / -1; }
 .bar-list { display:flex; flex-direction:column; gap:10px; }
-.bar-row { display:grid; grid-template-columns: 160px 1fr 56px; gap:10px; align-items:center; font-size:14px; }
+.bar-row { display:grid; grid-template-columns: 160px 1fr 56px; gap:10px; align-items:center; font-size:16px; }
 .bar-label { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .bar-track { background:#eef2ff; border-radius:999px; height:12px; overflow:hidden; }
 .bar-fill { height:100%; background:linear-gradient(90deg,var(--accent),#60a5fa); border-radius:999px; }
 .bar-fill.alt { background:linear-gradient(90deg,var(--accent2),#2dd4bf); }
 .month-bars .bar-track { background:#ecfeff; }
-.small { font-size:12px; color:var(--muted); }
+.small { font-size:14px; color:var(--muted); }
 .toolbar { display:flex; gap:10px; justify-content:space-between; align-items:center; flex-wrap:wrap; margin-bottom:12px; }
 .btns { display:flex; gap:8px; flex-wrap:wrap; }
 button { border:1px solid var(--line); background:#fff; border-radius:10px; padding:8px 12px; cursor:pointer; font-weight:600; }
 button.primary { background:var(--accent); color:#fff; border-color:var(--accent); }
 .table-wrap { overflow:auto; border:1px solid var(--line); border-radius:14px; }
 table { width:100%; border-collapse:collapse; min-width:980px; background:#fff; }
-th, td { padding:12px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; font-size:14px; }
+th, td { padding:12px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; font-size:16px; }
 th { position:sticky; top:0; background:#f9fafb; z-index:1; }
 .title-link { color:var(--text); text-decoration:none; font-weight:600; }
 .title-link:hover { color:var(--accent); }
-.badge { display:inline-block; padding:5px 9px; border-radius:999px; font-size:12px; background:#f3f4f6; }
-.footer { margin-top:14px; color:var(--muted); font-size:12px; }
+.badge { display:inline-block; padding:5px 9px; border-radius:999px; font-size:14px; background:#f3f4f6; }
+.footer { margin-top:14px; color:var(--muted); font-size:14px; }
 @media (max-width:1100px) { .kpi { grid-column: span 6; } .chart-card { grid-column: span 12; } .filters { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width:700px) { .kpi { grid-column: span 12; } .filters { grid-template-columns: 1fr; } .bar-row { grid-template-columns: 110px 1fr 42px; } .container { padding:14px; } .h1 { font-size:24px; } }
+
+    .site-topbar{padding:18px 28px 0; max-width:1440px; margin:0 auto; display:flex;}
+    .home-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#fff;color:#111827 !important;padding:12px 18px;border-radius:14px;font-size:18px;font-weight:800;border:1px solid rgba(17,24,39,.12);box-shadow:0 8px 24px rgba(15,23,42,.08);}
+    .home-btn:hover{background:#f9fafb;}
+
 </style>
 </head>
 <body>
+<div class="site-topbar"><a class="home-btn" href="index.html">← 返回首頁</a></div>
 <div class="container">
   <div class="header">
     <div>
