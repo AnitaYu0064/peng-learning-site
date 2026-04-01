@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>活動照片紀錄</title>
+  <style>
+    :root{
+      --bg:#f6f8fc;
+      --card:#ffffff;
+      --text:#1f2937;
+      --sub:#4b5563;
+      --line:#e5e7eb;
+      --accent:#3730a3;
+      --soft:#e0e7ff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
+      background:linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%);
+      color:var(--text);
+      line-height:1.9;
+      font-size:18px;
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:56px 24px 88px;}
+    .eyebrow{
+      display:inline-block;padding:7px 14px;border-radius:999px;background:var(--soft);
+      color:var(--accent);font-size:14px;font-weight:800;margin-bottom:16px;
+    }
+    h1{margin:0 0 14px;font-size:42px;line-height:1.2;letter-spacing:-0.02em;}
+    .desc{max-width:820px;font-size:20px;color:var(--sub);margin:0 0 34px;}
+    .back{
+      display:inline-block;
+      margin-bottom:24px;
+      text-decoration:none;
+      color:#111827;
+      font-weight:800;
+      font-size:16px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:28px;
+      box-shadow:0 12px 32px rgba(15,23,42,.06);
+      margin-bottom:18px;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:28px;
+      line-height:1.35;
+    }
+    .meta{
+      font-size:15px;
+      color:#6b7280;
+      margin-bottom:14px;
+      font-weight:700;
+    }
+    .card p{
+      margin:0 0 18px;
+      color:var(--sub);
+      font-size:18px;
+    }
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      background:#111827;
+      color:#fff;
+      padding:13px 18px;
+      border-radius:13px;
+      font-weight:800;
+      font-size:17px;
+      transition:background-color .22s ease, transform .22s ease, box-shadow .22s ease;
+      box-shadow:0 8px 18px rgba(17,24,39,.14);
+    }
+    .btn:hover{
+      background:#4f46e5;
+      transform:translateY(-1px);
+      box-shadow:0 12px 24px rgba(79,70,229,.24);
+    }
+    .note{
+      margin-top:28px;
+      background:rgba(255,255,255,.78);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:22px 24px;
+      color:var(--sub);
+      font-size:18px;
+    }
+    .note strong{color:var(--text);}
+    @media (max-width:700px){
+      body{font-size:17px}
+      .wrap{padding:28px 14px 64px}
+      h1{font-size:32px}
+      .desc,.card p,.note{font-size:17px}
+      .card h2{font-size:24px}
+      .card{padding:22px 18px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">← 返回首頁</a>
+    <div class="eyebrow">活動照片與學習圖片入口頁</div>
+    <h1>活動照片紀錄</h1>
+    <p class="desc">
+      這一頁集中整理頌哲的活動照片、生活紀錄與學習圖片。未來若新增新的活動頁面，可直接依照日期與活動名稱持續加入。
+    </p>
+
+    <div class="card">
+      <h2>2026 年 4 月 1 日｜山上溪邊戶外活動紀錄</h2>
+      <div class="meta">戶外活動｜溪邊觀察｜自然接觸｜照片紀錄</div>
+      <p>記錄本次前往山上溪邊的活動照片，包含溪流環境、自然觀察、戶外停留與互動畫面，作為生活學習與活動歷程的一部分。</p>
+      <a class="btn" href="shanxi-outdoor-record.html">進入活動頁</a>
+    </div>
+
+    <div class="note">
+      <strong>未來新增方式：</strong>之後若有新的活動頁，只要在這一頁再新增一張活動卡片，寫上日期、活動名稱與連結檔名即可。
+    </div>
+  </div>
+</body>
+</html>
