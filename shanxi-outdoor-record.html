@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>山上溪邊戶外活動紀錄</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      color: #243027;
+      background: #f5f7f3;
+      line-height: 1.85;
+    }
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(220,239,226,0.95), rgba(242,247,241,0.96));
+      border-radius: 28px;
+      padding: 52px 28px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(123, 168, 137, 0.12);
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.2;
+      color: #203a2a;
+      position: relative;
+      z-index: 1;
+    }
+    .meta {
+      font-size: 1rem;
+      color: #546357;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 860px;
+      font-size: 1.06rem;
+      color: #304035;
+      position: relative;
+      z-index: 1;
+    }
+    .section {
+      background: #fff;
+      border-radius: 22px;
+      padding: 28px 24px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      margin-bottom: 24px;
+    }
+    .section h2 {
+      margin: 0 0 14px;
+      font-size: 1.5rem;
+      color: #20402f;
+      padding-left: 12px;
+      border-left: 6px solid #7aa889;
+    }
+    .section p { margin: 0; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+    }
+    .point-box {
+      background: #f7faf6;
+      border: 1px solid #e3ebe2;
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      height: 100%;
+    }
+    .point-box h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+      color: #2b4733;
+    }
+    .point-box ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+    .point-box li { margin-bottom: 8px; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 18px;
+    }
+    .card {
+      background: #fcfcfb;
+      border: 1px solid #e8ece8;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 5px 14px rgba(0,0,0,0.045);
+    }
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      background: #edf1ed;
+    }
+    .card .content {
+      padding: 16px;
+    }
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      color: #223328;
+    }
+    .card p {
+      margin: 0;
+      color: #4c5b50;
+      font-size: 0.97rem;
+    }
+    .note {
+      background: #f7faf6;
+      border: 1px solid #e1e9e1;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 16px;
+      color: #324438;
+    }
+    footer {
+      text-align: center;
+      color: #66756a;
+      font-size: 0.94rem;
+      padding: 8px 0 24px;
+    }
+    code.inline {
+      background: #eef2ee;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+    @media (max-width: 860px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 16px; }
+      .hero { padding: 38px 20px; border-radius: 20px; }
+      .section { padding: 22px 18px; border-radius: 18px; }
+      .card img { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>山上溪邊戶外活動紀錄</h1>
+      <div class="meta">活動日期｜2026 / 04 / 01</div>
+      <p>
+        本次活動由家人陪同前往山區溪邊，透過步行、涉水、停留、觀察與互動，進行一場結合自然接觸、生活體驗與戶外活動的實地紀錄。
+        相較於只透過文字或影像理解自然環境，實際進入場域、感受水流、石面、植被與空間變化，能更具體地累積環境感受與生活經驗。
+      </p>
+    </section>
+
+    <section class="section grid-2">
+      <div>
+        <h2>活動概述</h2>
+        <p>
+          這次到溪邊的戶外活動，不只是單純出遊，而是一次真實場域中的自然接觸與生活學習。孩子們在溪流與岩石之間移動、停留、觀察，過程中同時運用身體平衡、空間判斷、環境注意力與即時互動能力。從照片中也能看見，活動不只是看風景，而是實際參與其中，包含探索水流與石頭、觀察周邊植物、在環境中放鬆，以及與家人共同留下當天的生活紀錄。
+        </p>
+      </div>
+      <div class="point-box">
+        <h3>本次活動可呈現的重點</h3>
+        <ul>
+          <li>進入自然場域，累積真實環境感受與戶外經驗。</li>
+          <li>透過涉水、跨石與步行，增加身體活動與平衡感練習。</li>
+          <li>在溪邊觀察石頭、水流、植物與細部自然物件。</li>
+          <li>保留家人共同參與的生活互動與陪伴歷程。</li>
+          <li>可作為學習網站中的戶外活動與生活紀錄頁面。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>活動照片紀錄</h2>
+      <div class="gallery">
+        <article class="card">
+          <img src="photo1.jpg" alt="在溪水中行走的活動照片">
+          <div class="content">
+            <h3>溪流中的實際移動與體驗</h3>
+            <p>在溪水中行走與踩踏石面，直接感受水流、深淺與地面變化，這類活動同時需要身體協調、平衡與環境判斷。</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="photo2.jpg" alt="在溪邊低頭觀察石頭與水流的照片">
+          <div class="content">
+            <h3>近距離觀察溪邊細節</h3>
+            <p>蹲下來近看水面、石頭與溪邊細節，讓自然環境不只是背景，而是真正進入觀察與探索的對象。</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="photo3.jpg" alt="坐在溪中大石上的活動照片">
+          <div class="content">
+            <h3>在自然場域中停留與感受</h3>
+            <p>坐在溪中石面上停留，讓活動不只有移動，也包含放慢節奏、感受水聲、氣溫與周邊空間的片刻。</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="photo4.jpg" alt="兩人合照的活動照片">
+          <div class="content">
+            <h3>共同參與的戶外紀錄</h3>
+            <p>活動過程中留下合照，不只是紀念，也呈現這次戶外經驗具有陪伴、互動與共同參與的生活意義。</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="photo5.jpg" alt="站在溪流岩石上的照片">
+          <div class="content">
+            <h3>溪谷地形與空間感受</h3>
+            <p>站在岩石與溪流之間，能更直接理解地形高低、環境尺度與自然場域的立體空間感。</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="photo6.jpg" alt="躺在岩石旁休息的活動照片">
+          <div class="content">
+            <h3>在自然環境中放鬆</h3>
+            <p>溪邊活動不只是探索，也包含在安全環境下停下來休息、放鬆，感受自然空間帶來的安定與舒緩。</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="photo7.jpg" alt="手中拿著自然物件的近拍照片">
+          <div class="content">
+            <h3>發現細小自然物件</h3>
+            <p>活動中也觀察到小型自然物件，從整體環境延伸到細部事物，讓戶外活動增加更多具體而細緻的記憶點。</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="photo8.jpg" alt="在溪邊彈吉他的活動照片">
+          <div class="content">
+            <h3>自然場域中的音樂與停留</h3>
+            <p>在溪邊彈奏吉他，讓活動從探索自然延伸到音樂陪伴與場域感受，也讓這次紀錄多了更完整的情境層次。</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="note">
+        這一頁適合放入頌哲的學習網站中，作為「戶外活動紀錄」、「生活學習紀錄」或「自然體驗頁面」。
+        若要上傳到 GitHub Pages，請將本頁 HTML 與 8 張圖片放在同一個資料夾中，並保持目前檔名不變即可正常顯示。
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>活動收穫整理</h2>
+      <p>
+        這次溪邊活動的價值，不只在於留下照片，而在於把一次真實發生的自然接觸經驗整理成可保存、可回顧的內容。
+        從涉水、觀察、互動、休息，到在自然環境中彈奏音樂，整體過程呈現出的是一種完整的生活經驗：既有身體活動，也有感官體驗；既有空間觀察，也有家人陪伴。對學習網站而言，這類頁面能補足純文字報告之外的另一個面向，讓外部閱讀者更容易理解孩子的生活參與、自然接觸與真實活動歷程。
+      </p>
+    </section>
+
+    <footer>
+      本頁為 2026 年 4 月 1 日山上溪邊戶外活動紀錄頁面。
+    </footer>
+  </div>
+</body>
+</html>
