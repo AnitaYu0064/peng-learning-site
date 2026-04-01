@@ -67,6 +67,27 @@
       .card h2{font-size:25px}
       .section h3{font-size:22px}
     }
+  
+    @media (max-width:700px){
+      .grid{
+        grid-template-columns:1fr !important;
+        gap:18px !important;
+      }
+      .card{
+        min-height:auto !important;
+        height:auto !important;
+        padding:26px 20px 22px !important;
+      }
+      .card p{
+        flex-grow:0 !important;
+        margin-bottom:18px !important;
+      }
+      .btn{
+        margin-top:0 !important;
+        align-self:flex-start !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -129,7 +150,7 @@
       <p>這也代表，原本不容易被傳統作業形式看見的學習歷程，能透過 AI 協作被更清楚地整理、保存與呈現。</p>
     </div>
 
-    <div class="footer">建議以桌機或平板瀏覽，以獲得較完整的互動式閱讀與圖表體驗。</div>
+    <div class="footer">建議以桌機或平板瀏覽，以獲得較完整的互動式閱讀與圖表體驗。｜mobile fix v3</div>
   </div>
 </body>
 </html>
