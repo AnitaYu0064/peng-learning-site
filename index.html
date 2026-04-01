@@ -24,105 +24,41 @@
       line-height:1.9;
       font-size:18px;
     }
-    .wrap{
-      max-width:1180px;
-      margin:0 auto;
-      padding:56px 24px 88px;
-    }
+    .wrap{max-width:1180px;margin:0 auto;padding:56px 24px 88px;}
     .hero{margin-bottom:34px;}
     .eyebrow{
-      display:inline-block;
-      padding:7px 14px;
-      border-radius:999px;
-      background:var(--soft);
-      color:var(--accent);
-      font-size:14px;
-      font-weight:800;
-      margin-bottom:16px;
+      display:inline-block;padding:7px 14px;border-radius:999px;background:var(--soft);
+      color:var(--accent);font-size:14px;font-weight:800;margin-bottom:16px;
     }
-    h1{
-      margin:0 0 14px;
-      font-size:44px;
-      line-height:1.2;
-      letter-spacing:-0.02em;
-    }
-    .desc{
-      max-width:900px;
-      font-size:20px;
-      color:var(--sub);
-      margin:0;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:24px;
-      margin-top:36px;
-    }
+    h1{margin:0 0 14px;font-size:44px;line-height:1.2;letter-spacing:-0.02em;}
+    .desc{max-width:900px;font-size:20px;color:var(--sub);margin:0;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;margin-top:36px;align-items:stretch;}
     .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:30px;
+      background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px;
       box-shadow:0 12px 32px rgba(15,23,42,.06);
+      min-height:420px;display:flex;flex-direction:column;align-items:flex-start;
     }
-    .card h2{
-      margin:0 0 12px;
-      font-size:29px;
-      line-height:1.35;
-    }
-    .meta{
-      font-size:15px;
-      color:#6b7280;
-      margin-bottom:18px;
-      font-weight:700;
-    }
-    .card p{
-      margin:0 0 20px;
-      color:var(--sub);
-      font-size:18px;
-    }
+    .card h2{margin:0 0 12px;font-size:29px;line-height:1.35;}
+    .meta{font-size:15px;color:#6b7280;margin-bottom:18px;font-weight:700;}
+    .card p{margin:0 0 20px;color:var(--sub);font-size:18px;flex-grow:1;}
     .btn{
-      display:inline-block;
-      text-decoration:none;
-      background:var(--accent2);
-      color:#fff;
-      padding:13px 18px;
-      border-radius:13px;
-      font-weight:800;
-      font-size:17px;
+      display:inline-block;text-decoration:none;background:#111827;color:#fff;
+      padding:13px 18px;border-radius:13px;font-weight:800;font-size:17px;
+      margin-top:auto;align-self:flex-start;
+      transition:background-color .22s ease, transform .22s ease, box-shadow .22s ease;
+      box-shadow:0 8px 18px rgba(17,24,39,.14);
     }
-    .btn:hover{background:#000;}
+    .btn:hover{background:#4f46e5;transform:translateY(-1px);box-shadow:0 12px 24px rgba(79,70,229,.24);}
     .section{
-      margin-top:40px;
-      background:rgba(255,255,255,.78);
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:24px 26px;
+      margin-top:40px;background:rgba(255,255,255,.78);border:1px solid var(--line);
+      border-radius:20px;padding:24px 26px;
     }
-    .section h3{
-      margin:0 0 12px;
-      font-size:24px;
-      line-height:1.4;
-    }
-    .section p{
-      margin:0 0 14px;
-      font-size:18px;
-      color:var(--sub);
-    }
+    .section h3{margin:0 0 12px;font-size:24px;line-height:1.4;}
+    .section p{margin:0 0 14px;font-size:18px;color:var(--sub);}
     .section strong{color:var(--text);}
-    .ai-list{
-      margin:0;
-      padding-left:22px;
-      color:var(--sub);
-      font-size:18px;
-    }
+    .ai-list{margin:0;padding-left:22px;color:var(--sub);font-size:18px;}
     .ai-list li{margin:8px 0;}
-    .footer{
-      margin-top:30px;
-      font-size:15px;
-      color:#6b7280;
-      text-align:center;
-    }
+    .footer{margin-top:30px;font-size:15px;color:#6b7280;text-align:center;}
     @media (max-width:700px){
       body{font-size:17px}
       .wrap{padding:28px 14px 64px}
@@ -139,7 +75,7 @@
       <div class="eyebrow">彭頌哲自學資料分析與成果展示網站</div>
       <h1>彭頌哲學習分析網站</h1>
       <p class="desc">
-        這個網站整理了彭頌哲的 YouTube 自學觀看資料、學習脈絡與觀點報告。透過互動式 Dashboard 與報告頁，呈現他的學習主題、內容類型、知識來源、思考方向與成果整理。
+        這個網站整理了彭頌哲的 YouTube 自學觀看資料、學習脈絡、議題討論與觀點報告。透過互動式 Dashboard 與主題頁面，呈現他的學習主題、內容類型、知識來源、思考方向與觀點輸出。
       </p>
     </div>
 
@@ -147,62 +83,53 @@
       <div class="card">
         <h2>自學分析 Dashboard</h2>
         <div class="meta">學習軌跡｜主題演化｜核心頻道｜知識來源</div>
-        <p>
-          查看整體自學歷程、主題變化、時間分布、核心知識來源，以及可直接整理進學習歷程報告的分析結論。
-        </p>
+        <p>查看整體自學歷程、主題變化、時間分布、核心知識來源，以及可直接整理進學習歷程報告的分析結論。</p>
         <a class="btn" href="彭頌哲自學分析Dashboard_大字版.html">進入查看</a>
       </div>
 
       <div class="card">
         <h2>內容類型分析 Dashboard</h2>
         <div class="meta">觀看標題｜內容風格｜關鍵詞｜問題意識</div>
-        <p>
-          查看影片標題、內容類型、風格分布、關鍵詞群聚與隱藏洞察，更清楚看出他平常實際接觸了哪些內容。
-        </p>
+        <p>查看影片標題、內容類型、風格分布、關鍵詞群聚與隱藏洞察，更清楚看出他平常實際接觸了哪些內容。</p>
         <a class="btn" href="彭頌哲內容類型分析Dashboard_大字版.html">進入查看</a>
       </div>
 
       <div class="card">
         <h2>頌哲 YouTube 學習標題 Dashboard</h2>
         <div class="meta">影片標題詳列｜日期篩選｜內容分類｜頻道分析</div>
-        <p>
-          查看頌哲的 YouTube 觀看標題詳列，可用關鍵字、日期、內容分類與頻道做互動篩選，快速看出他看了哪些影片與主題。
-        </p>
+        <p>查看頌哲的 YouTube 觀看標題詳列，可用關鍵字、日期、內容分類與頻道做互動篩選，快速看出他看了哪些影片與主題。</p>
         <a class="btn" href="彭頌哲YouTube學習標題Dashboard_大字版.html">進入查看</a>
+      </div>
+
+      <div class="card">
+        <h2>議題思辨與學習心得</h2>
+        <div class="meta">書籍討論｜議題思辨｜閱讀反思｜觀點輸出</div>
+        <p>整理頌哲對書籍、觀點與各類議題的討論心得，呈現他如何從閱讀、對話、辯論到形成自己的理解與判斷。</p>
+        <a class="btn" href="議題思辨與學習心得.html">進入查看</a>
       </div>
 
       <div class="card">
         <h2>學習成果與觀點報告</h2>
         <div class="meta">自學成果｜思考脈絡｜觀點形成｜模擬展示稿</div>
-        <p>
-          查看以第一人稱整理的學習成果與觀點報告，呈現頌哲目前的學習動機、方法、核心主題、形成的能力與後續方向。
-        </p>
+        <p>查看以第一人稱整理的學習成果與觀點報告，呈現頌哲目前的學習動機、方法、核心主題、形成的能力與後續方向。</p>
         <a class="btn" href="頌哲學習成果與觀點報告_大字版.html">進入查看</a>
       </div>
     </div>
 
     <div class="section">
       <h3>AI 協作說明：此網站與報告如何輔助有障礙的自學生</h3>
-      <p>
-        本網站與相關報告，皆由 <strong>ChatGPT、Gemini、Claude Cowork、NotebookLM</strong> 一同協作完成。這些 AI 工具並不是代替學生思考，而是作為<strong>輔助理解、整理、表達與展示</strong>的工具，協助有障礙的自學生跨過一般書寫與整理上較困難的環節。
-      </p>
+      <p>本網站與相關報告，皆由 <strong>ChatGPT、Gemini、Claude Cowork、NotebookLM</strong> 一同協作完成。這些 AI 工具並不是代替學生思考，而是作為<strong>輔助理解、整理、表達與展示</strong>的工具，協助有障礙的自學生跨過一般書寫與整理上較困難的環節。</p>
       <ul class="ai-list">
         <li><strong>ChatGPT</strong>：協助整理觀看紀錄、分析學習脈絡、形成報告結構與網站文案。</li>
         <li><strong>Gemini</strong>：協助延伸整理主題、補充視覺化與內容表達方向。</li>
         <li><strong>Claude Cowork</strong>：協助產出前端頁面、Dashboard 結構與網站整理工作流程。</li>
         <li><strong>NotebookLM</strong>：協助從資料中萃取脈絡、摘要重點與建立可追溯的內容理解。</li>
       </ul>
-      <p>
-        對於有書寫、組織或表達困難的學生來說，AI 的價值不只是幫忙做事，而是提供一種新的學習支架：讓學生能先從口語、提問、互動與素材累積開始，再一步一步轉化成有系統的成果、報告與作品展示。
-      </p>
-      <p>
-        這也代表，原本不容易被傳統作業形式看見的學習歷程，能透過 AI 協作被更清楚地整理、保存與呈現。
-      </p>
+      <p>對於有書寫、組織或表達困難的學生來說，AI 的價值不只是幫忙做事，而是提供一種新的學習支架：讓學生能先從口語、提問、互動與素材累積開始，再一步一步轉化成有系統的成果、報告與作品展示。</p>
+      <p>這也代表，原本不容易被傳統作業形式看見的學習歷程，能透過 AI 協作被更清楚地整理、保存與呈現。</p>
     </div>
 
-    <div class="footer">
-      建議以桌機或平板瀏覽，以獲得較完整的互動式閱讀與圖表體驗。
-    </div>
+    <div class="footer">建議以桌機或平板瀏覽，以獲得較完整的互動式閱讀與圖表體驗。</div>
   </div>
 </body>
 </html>

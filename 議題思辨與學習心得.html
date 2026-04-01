@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>議題思辨與學習心得</title>
+  <style>
+    :root{
+      --bg:#f6f8fc;
+      --card:#ffffff;
+      --text:#1f2937;
+      --sub:#4b5563;
+      --line:#e5e7eb;
+      --accent:#3730a3;
+      --soft:#e0e7ff;
+      --accent2:#111827;
+      --shadow:0 10px 30px rgba(15,23,42,.06);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
+      background:linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%);
+      color:var(--text);
+      line-height:1.9;
+      font-size:18px;
+    }
+    .wrap{max-width:1120px;margin:0 auto;padding:28px 20px 72px;}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px;}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:var(--accent2);
+      color:#fff;padding:12px 18px;border-radius:14px;font-size:17px;font-weight:800;
+      box-shadow:0 8px 24px rgba(15,23,42,.10);
+    }
+    .btn:hover{background:#000;}
+    .hero{
+      background:rgba(255,255,255,.84);border:1px solid var(--line);border-radius:24px;
+      padding:32px 28px;box-shadow:var(--shadow);margin-bottom:24px;
+    }
+    .eyebrow{
+      display:inline-block;padding:6px 12px;border-radius:999px;background:var(--soft);
+      color:var(--accent);font-size:13px;font-weight:800;margin-bottom:14px;
+    }
+    h1{margin:0 0 12px;font-size:42px;line-height:1.18;letter-spacing:-.02em;}
+    .lead{margin:0;font-size:20px;color:var(--sub);max-width:920px;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;}
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;
+      box-shadow:var(--shadow);
+    }
+    .card h2{margin:0 0 10px;font-size:29px;line-height:1.35;}
+    .meta{font-size:15px;color:#6b7280;margin-bottom:16px;font-weight:700;}
+    .card p{margin:0 0 20px;color:var(--sub);font-size:18px;}
+    .mini-btn{
+      display:inline-block;text-decoration:none;background:#3730a3;color:#fff;
+      padding:12px 16px;border-radius:12px;font-size:16px;font-weight:800;
+    }
+    .mini-btn:hover{background:#221a78;}
+    .section{
+      margin-top:28px;background:rgba(255,255,255,.78);border:1px solid var(--line);
+      border-radius:20px;padding:22px 24px;
+    }
+    .section h3{margin:0 0 10px;font-size:24px;}
+    .section p{margin:0;color:var(--sub);font-size:18px;}
+    .footer{margin-top:26px;text-align:center;color:#6b7280;font-size:15px;}
+    @media (max-width:700px){
+      body{font-size:17px}
+      .wrap{padding:20px 14px 56px}
+      h1{font-size:32px}
+      .lead,.card p,.section p{font-size:17px}
+      .card h2{font-size:25px}
+      .section h3{font-size:22px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="btn" href="index.html">← 返回首頁</a>
+    </div>
+
+    <div class="hero">
+      <div class="eyebrow">主題頁｜閱讀反思｜辯論輸出｜觀點整理</div>
+      <h1>議題思辨與學習心得</h1>
+      <p class="lead">這一頁整理頌哲針對不同書籍、觀點與議題的討論內容。每篇文章都不是只有心得，而是包含閱讀後的質疑、和媽媽及 GPT 的討論過程、辯論式思考，以及最後整理出來的個人觀點。</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>重新理解《被討厭的勇氣》</h2>
+        <div class="meta">書籍討論｜選擇權｜勇氣｜觀點再詮釋</div>
+        <p>從一開始覺得這本書真的很棒，到接觸更多哲學、心理學與歷史內容之後，重新思考它對「選擇權」與「勇氣」的解釋是否過於簡化。這篇內容保留了討論脈絡，也整理出最後形成的觀點。</p>
+        <a class="mini-btn" href="彭頌哲_討論心得_被討厭的勇氣_最終版.html">進入閱讀</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>這一頁未來會怎麼使用</h3>
+      <p>之後若還有新的書籍討論、影片觀點整理、哲學或心理學議題反思，都可以持續新增在這一頁，慢慢累積成頌哲自己的「議題思辨作品集」。這樣首頁保持清楚，議題內容也能集中管理。</p>
+    </div>
+
+    <div class="footer">目前先收錄第一篇議題討論，後續可再持續擴充新的主題與心得。</div>
+  </div>
+</body>
+</html>
