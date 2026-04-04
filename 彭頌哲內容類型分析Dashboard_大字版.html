@@ -10,18 +10,18 @@
    ROOT & THEME
 ══════════════════════════════════════════ */
 :root {
-  --bg:       #f0f2f8;
-  --bg2:      #e8ebf5;
+  --bg:       #f7f8fa;
+  --bg2:      #eef2f7;
   --card:     #ffffff;
-  --border:   #dde1f0;
-  --shadow:   0 2px 12px rgba(80,90,150,0.08);
-  --text:     #1a1f3a;
-  --text2:    #4a5278;
-  --text3:    #7a84a8;
-  --accent:   #5b50e8;
-  --accent2:  #3daee8;
-  --accent3:  #e86060;
-  --header-bg:#1e1b4b;
+  --border:   #e2e8f0;
+  --shadow:   0 2px 12px rgba(26,39,68,0.08);
+  --text:     #111827;
+  --text2:    #374151;
+  --text3:    #6b7fa8;
+  --accent:   #1d4ed8;
+  --accent2:  #2563eb;
+  --accent3:  #dc2626;
+  --header-bg:#1a2744;
   --gap:      20px;
   --radius:   14px;
   --font:     -apple-system, BlinkMacSystemFont, 'Noto Sans TC', 'Segoe UI', sans-serif;
@@ -44,7 +44,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
   padding: 24px 34px;
   display: flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;
   position: sticky; top:0; z-index:100;
-  box-shadow: 0 2px 20px rgba(30,27,75,0.3);
+  box-shadow: 0 2px 20px rgba(26,39,68,0.3);
 }
 .hdr-left h1 { font-size: 22px; font-weight: 800; letter-spacing: 0.3px; }
 .hdr-left p  { font-size: 14px; color: rgba(255,255,255,0.6); margin-top:3px; }
@@ -64,7 +64,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
   min-width: 130px; font-family: var(--font);
 }
 .filter-group select:focus { outline:none; border-color:rgba(255,255,255,0.5); }
-.filter-group select option { background: #1e1b4b; color:#fff; }
+.filter-group select option { background: #1a2744; color:#fff; }
 
 /* ══════════════════════════════════════════
    LAYOUT
@@ -192,7 +192,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
    CONCLUSION
 ══════════════════════════════════════════ */
 .conclusion-card {
-  background: linear-gradient(135deg, #f0eeff 0%, #eef6ff 100%);
+  background: linear-gradient(135deg, #f7f8fa 0%, #eef6ff 100%);
   border: 2px solid #c8c0ff; border-radius: var(--radius); padding: 24px; margin-bottom:16px;
 }
 .conclusion-card h4 { font-size:18px; font-weight:900; color:var(--accent); margin-bottom:12px; }
@@ -227,9 +227,10 @@ body { background: var(--bg); color: var(--text); font-family: var(--font); line
 }
 .number-big { font-size:40px; font-weight:900; color:var(--accent); }
 
-    .site-topbar{padding:18px 28px 0; max-width:1440px; margin:0 auto; display:flex;}
-    .home-btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#fff;color:#111827 !important;padding:12px 18px;border-radius:14px;font-size:18px;font-weight:800;border:1px solid rgba(17,24,39,.12);box-shadow:0 8px 24px rgba(15,23,42,.08);}
-    .home-btn:hover{background:#f9fafb;}
+    .site-topbar{background:#1a2744;padding:10px 28px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08);}
+    .site-topbar-label{color:rgba(255,255,255,.5);font-size:12px;font-weight:600;letter-spacing:0.5px;}
+    .home-btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;background:rgba(255,255,255,.1);color:#fff !important;padding:7px 14px;border-radius:7px;font-size:13px;font-weight:600;border:1px solid rgba(255,255,255,.18);transition:background .15s;}
+    .home-btn:hover{background:rgba(255,255,255,.2);}
 
 </style>
 
@@ -258,7 +259,7 @@ body{font-size:18px!important;line-height:1.9!important}
 
 </head>
 <body>
-<div class="site-topbar"><a class="home-btn" href="index.html">← 返回首頁</a></div>
+<div class="site-topbar"><span class="site-topbar-label">彭頌哲自學歷程記錄網站　|　審議委員參閱用</span><a class="home-btn" href="index.html">← 返回首頁</a></div>
 
 <!-- ════════════════════════════════════════════ HEADER -->
 <header class="site-header">

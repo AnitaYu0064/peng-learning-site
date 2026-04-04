@@ -6,77 +6,85 @@
   <title>議題思辨與學習心得</title>
   <style>
     :root{
-      --bg:#f6f8fc;
+      --bg:#f7f8fa;
       --card:#ffffff;
-      --text:#1f2937;
-      --sub:#4b5563;
-      --line:#e5e7eb;
-      --accent:#3730a3;
-      --soft:#e0e7ff;
-      --accent2:#111827;
-      --shadow:0 10px 30px rgba(15,23,42,.06);
+      --text:#111827;
+      --sub:#374151;
+      --line:#e2e8f0;
+      --accent:#1d4ed8;
+      --soft:#eff6ff;
+      --accent2:#1a2744;
+      --header-bg:#1a2744;
+      --shadow:0 2px 8px rgba(0,0,0,.04), 0 6px 20px rgba(26,39,68,.06);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
-      background:linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%);
+      background:#f7f8fa;
       color:var(--text);
       line-height:1.9;
       font-size:18px;
     }
-    .wrap{max-width:1120px;margin:0 auto;padding:28px 20px 72px;}
-    .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px;}
-    .btn{
-      display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:var(--accent2);
-      color:#fff;padding:12px 18px;border-radius:14px;font-size:17px;font-weight:800;
-      box-shadow:0 8px 24px rgba(15,23,42,.10);
+    /* ── SITE HEADER ── */
+    .site-header{background:var(--header-bg);padding:14px 24px;box-shadow:0 2px 14px rgba(26,39,68,.22);}
+    .site-header-inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+    .site-header-label{color:rgba(255,255,255,.65);font-size:13px;font-weight:700;letter-spacing:0.4px;}
+    /* ── NAV BUTTONS ── */
+    .page-nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:22px;padding-top:4px;}
+    .nav-btn{
+      display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+      background:var(--accent);color:#fff !important;
+      padding:10px 18px;border-radius:10px;font-size:15px;font-weight:700;
+      box-shadow:0 3px 10px rgba(29,78,216,.2);
+      transition:background .18s,transform .15s;
     }
-    .btn:hover{background:#000;}
+    .nav-btn:hover{background:#1e3a8a;transform:translateY(-1px);}
+    /* ── LAYOUT ── */
+    .wrap{max-width:1120px;margin:0 auto;padding:24px 20px 72px;}
     .hero{
-      background:rgba(255,255,255,.84);border:1px solid var(--line);border-radius:24px;
-      padding:32px 28px;box-shadow:var(--shadow);margin-bottom:24px;
+      background:#ffffff;border:1px solid var(--line);border-left:5px solid var(--accent2);border-radius:0 14px 14px 0;padding:28px 30px 24px;box-shadow:0 2px 8px rgba(0,0,0,.04),0 4px 16px rgba(26,39,68,.05);margin-bottom:22px;
     }
     .eyebrow{
-      display:inline-block;padding:6px 12px;border-radius:999px;background:var(--soft);
-      color:var(--accent);font-size:13px;font-weight:800;margin-bottom:14px;
+      display:inline-block;padding:4px 10px;border-radius:4px;background:var(--accent2);color:#fff;font-size:11px;font-weight:700;margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;
     }
-    h1{margin:0 0 12px;font-size:42px;line-height:1.18;letter-spacing:-.02em;}
-    .lead{margin:0;font-size:20px;color:var(--sub);max-width:920px;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;}
+    h1{margin:0 0 10px;font-size:38px;line-height:1.2;letter-spacing:-.02em;color:var(--accent2);}
+    .lead{margin:0;font-size:19px;color:var(--sub);max-width:920px;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;}
     .card{
-      background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;
-      box-shadow:var(--shadow);
+      background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:22px 24px 22px 22px;box-shadow:0 2px 8px rgba(0,0,0,.04);transition:box-shadow .18s;
     }
-    .card h2{margin:0 0 10px;font-size:29px;line-height:1.35;}
-    .meta{font-size:15px;color:#6b7280;margin-bottom:16px;font-weight:700;}
-    .card p{margin:0 0 20px;color:var(--sub);font-size:18px;}
+    .card:hover{box-shadow:0 10px 28px rgba(26,39,68,.10);transform:translateY(-1px);}
+    .card h2{margin:0 0 8px;font-size:26px;line-height:1.35;color:var(--accent2);}
+    .meta{font-size:11px;color:#64748b;margin-bottom:12px;font-weight:600;letter-spacing:0.8px;text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:10px;}
+    .card p{margin:0 0 18px;color:var(--sub);font-size:17px;}
     .mini-btn{
-      display:inline-block;text-decoration:none;background:#3730a3;color:#fff;
-      padding:12px 16px;border-radius:12px;font-size:16px;font-weight:800;
+      display:inline-flex;align-items:center;gap:6px;
+      text-decoration:none;background:var(--accent);color:#fff;
+      padding:10px 16px;border-radius:10px;font-size:15px;font-weight:800;
+      box-shadow:0 3px 10px rgba(29,78,216,.2);
+      transition:background .18s,transform .15s;
     }
-    .mini-btn:hover{background:#221a78;}
-    .section{
-      margin-top:28px;background:rgba(255,255,255,.78);border:1px solid var(--line);
-      border-radius:20px;padding:22px 24px;
-    }
-    .section h3{margin:0 0 10px;font-size:24px;}
-    .section p{margin:0;color:var(--sub);font-size:18px;}
-    .footer{margin-top:26px;text-align:center;color:#6b7280;font-size:15px;}
+    .mini-btn:hover{background:#1e3a8a;transform:translateY(-1px);}
+    .footer{margin-top:24px;text-align:center;color:#6b7280;font-size:14px;}
     @media (max-width:700px){
       body{font-size:17px}
-      .wrap{padding:20px 14px 56px}
-      h1{font-size:32px}
-      .lead,.card p,.section p{font-size:17px}
-      .card h2{font-size:25px}
-      .section h3{font-size:22px}
+      .wrap{padding:18px 14px 52px}
+      h1{font-size:30px}
+      .lead,.card p{font-size:16px}
+      .card h2{font-size:23px}
     }
   </style>
 </head>
 <body>
+  <div class="site-header">
+    <div class="site-header-inner">
+      <span class="site-header-label">彭頌哲自學歷程記錄網站</span>
+    </div>
+  </div>
   <div class="wrap">
-    <div class="topbar">
-      <a class="btn" href="index.html">← 返回首頁</a>
+    <div class="page-nav">
+      <a class="nav-btn" href="index.html">← 返回首頁</a>
     </div>
 
     <div class="hero">
@@ -92,11 +100,6 @@
         <p>從一開始覺得這本書真的很棒，到接觸更多哲學、心理學與歷史內容之後，重新思考它對「選擇權」與「勇氣」的解釋是否過於簡化。這篇內容保留了討論脈絡，也整理出最後形成的觀點。</p>
         <a class="mini-btn" href="彭頌哲_討論心得_被討厭的勇氣_最終版.html">進入閱讀</a>
       </div>
-    </div>
-
-    <div class="section">
-      <h3>這一頁未來會怎麼使用</h3>
-      <p>之後若還有新的書籍討論、影片觀點整理、哲學或心理學議題反思，都可以持續新增在這一頁，慢慢累積成頌哲自己的「議題思辨作品集」。這樣首頁保持清楚，議題內容也能集中管理。</p>
     </div>
 
     <div class="footer">目前先收錄第一篇議題討論，後續可再持續擴充新的主題與心得。</div>

@@ -6,76 +6,123 @@
   <title>彭頌哲學習分析網站</title>
   <style>
     :root{
-      --bg:#f6f8fc;
+      --bg:#f7f8fa;
       --card:#ffffff;
-      --text:#1f2937;
-      --sub:#4b5563;
-      --line:#e5e7eb;
-      --accent:#3730a3;
-      --accent2:#111827;
-      --soft:#e0e7ff;
+      --text:#111827;
+      --sub:#374151;
+      --line:#e2e8f0;
+      --accent:#1d4ed8;
+      --accent2:#1a2744;
+      --soft:#eff6ff;
+      --header-bg:#1a2744;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
-      background:linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%);
+      background:#f7f8fa;
       color:var(--text);
       line-height:1.9;
       font-size:18px;
     }
-    .wrap{max-width:1180px;margin:0 auto;padding:56px 24px 88px;}
-    .hero{margin-bottom:34px;}
+    /* ── SITE TOP HEADER ── */
+    .site-header{
+      background:var(--header-bg);
+      padding:18px 28px;
+      box-shadow:0 2px 16px rgba(26,39,68,.22);
+    }
+    .site-header-inner{
+      max-width:1180px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .site-header-label{
+      color:rgba(255,255,255,0.65);
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:0.5px;
+    }
+    /* ── MAIN WRAP ── */
+    .wrap{max-width:1060px;margin:0 auto;padding:36px 24px 80px;}
+    .hero{
+      background:#ffffff;
+      border:1px solid var(--line);
+      border-left:5px solid var(--accent2);
+      border-radius:0 14px 14px 0;
+      padding:30px 32px 26px;
+      box-shadow:0 2px 8px rgba(0,0,0,.04),0 4px 16px rgba(26,39,68,.05);
+      margin-bottom:28px;
+    }
     .eyebrow{
-      display:inline-block;padding:7px 14px;border-radius:999px;background:var(--soft);
-      color:var(--accent);font-size:14px;font-weight:800;margin-bottom:16px;
+      display:inline-block;padding:4px 10px;border-radius:4px;
+      background:var(--accent2);color:#fff;
+      font-size:11px;font-weight:700;margin-bottom:14px;
+      letter-spacing:1px;text-transform:uppercase;
     }
-    h1{margin:0 0 14px;font-size:44px;line-height:1.2;letter-spacing:-0.02em;}
-    .desc{max-width:900px;font-size:20px;color:var(--sub);margin:0;}
-    .grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:36px;}
+    h1{margin:0 0 10px;font-size:34px;line-height:1.22;letter-spacing:-0.01em;color:var(--accent2);font-weight:900;}
+    .desc{max-width:900px;font-size:17px;color:var(--sub);margin:0;line-height:1.85;}
+    /* ── GRID ── */
+    .grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:0;}
     .card{
-      background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px 20px 22px;
-      box-shadow:0 12px 32px rgba(15,23,42,.06);
+      background:var(--card);
+      border:1px solid var(--line);
+      border-left:4px solid var(--accent);
+      border-radius:0 14px 14px 0;
+      padding:24px 22px 20px 24px;
+      box-shadow:0 2px 8px rgba(0,0,0,.04),0 4px 16px rgba(26,39,68,.05);
       display:block;
-      min-height:auto;
-      height:auto;
+      transition:box-shadow .2s,border-left-color .2s;
     }
-    .card h2{margin:0 0 12px;font-size:29px;line-height:1.35;}
-    .meta{font-size:15px;color:#6b7280;margin-bottom:18px;font-weight:700;}
-    .card p{margin:0 0 18px;color:var(--sub);font-size:18px;}
+    .card:hover{
+      box-shadow:0 4px 14px rgba(0,0,0,.06),0 8px 24px rgba(26,39,68,.08);
+      border-left-color:#1e3a8a;
+    }
+    .card h2{margin:0 0 6px;font-size:22px;font-weight:800;line-height:1.35;color:var(--accent2);}
+    .meta{
+      font-size:12px;color:#64748b;margin-bottom:12px;font-weight:600;
+      letter-spacing:0.6px;text-transform:uppercase;
+      border-bottom:1px solid var(--line);padding-bottom:10px;
+    }
+    .card p{margin:0 0 16px;color:var(--sub);font-size:16px;line-height:1.8;}
     .btn{
-      display:inline-block;text-decoration:none;background:#111827;color:#fff;
-      padding:13px 18px;border-radius:13px;font-weight:800;font-size:17px;
-      transition:background-color .22s ease, transform .22s ease, box-shadow .22s ease;
-      box-shadow:0 8px 18px rgba(17,24,39,.14);
+      display:inline-flex;align-items:center;gap:5px;
+      text-decoration:none;background:var(--accent2);color:#fff;
+      padding:9px 16px;border-radius:7px;font-weight:700;font-size:14px;
+      letter-spacing:0.2px;
+      transition:background .18s;
     }
-    .btn:hover{background:#4f46e5;transform:translateY(-1px);box-shadow:0 12px 24px rgba(79,70,229,.24);}
+    .btn:hover{background:var(--accent);}
+    /* ── AI INFO SECTION ── */
     .section{
-      margin-top:40px;background:rgba(255,255,255,.78);border:1px solid var(--line);
-      border-radius:20px;padding:24px 26px;
+      margin-top:32px;background:#ffffff;border:1px solid var(--line);
+      border-top:3px solid var(--accent2);
+      border-radius:0 0 14px 14px;padding:24px 26px;
+      box-shadow:0 2px 8px rgba(0,0,0,.04);
     }
-    .section h3{margin:0 0 12px;font-size:24px;line-height:1.4;}
-    .section p{margin:0 0 14px;font-size:18px;color:var(--sub);}
+    .section h3{margin:0 0 10px;font-size:19px;line-height:1.4;color:var(--accent2);font-weight:800;letter-spacing:0.2px;}
+    .section p{margin:0 0 12px;font-size:16px;color:var(--sub);}
     .section strong{color:var(--text);}
-    .ai-list{margin:0;padding-left:22px;color:var(--sub);font-size:18px;}
-    .ai-list li{margin:8px 0;}
-    .footer{margin-top:30px;font-size:15px;color:#6b7280;text-align:center;}
+    .ai-list{margin:8px 0 0;padding-left:20px;color:var(--sub);font-size:16px;}
+    .ai-list li{margin:8px 0;line-height:1.75;}
+    .footer{margin-top:28px;font-size:13px;color:#94a3b8;text-align:center;letter-spacing:0.3px;}
 
     @media (min-width:701px){
       .grid{
-        grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-        gap:24px;
+        grid-template-columns:repeat(2,1fr);
+        gap:14px;
         align-items:stretch;
       }
       .card{
-        min-height:420px;
-        padding:30px;
+        min-height:200px;
+        padding:22px 24px 20px 24px;
         display:flex;
         flex-direction:column;
         align-items:flex-start;
       }
       .card p{
-        margin:0 0 20px;
+        margin:0 0 16px;
         flex-grow:1;
       }
       .btn{
@@ -85,59 +132,72 @@
     }
 
     @media (max-width:700px){
-      body{font-size:17px}
-      .wrap{padding:28px 14px 64px}
-      h1{font-size:34px}
-      .desc,.card p,.section p,.ai-list{font-size:17px}
-      .card h2{font-size:25px}
-      .section h3{font-size:22px}
+      body{font-size:16px}
+      .wrap{padding:20px 14px 56px}
+      h1{font-size:28px}
+      .desc,.card p,.section p,.ai-list{font-size:15px}
+      .card h2{font-size:20px}
+      .section h3{font-size:18px}
     }
   </style>
 </head>
 <body>
+  <div class="site-header">
+    <div class="site-header-inner">
+      <span class="site-header-label">彭頌哲自學歷程記錄網站　|　審議委員參閱用</span>
+    </div>
+  </div>
+
   <div class="wrap">
     <div class="hero">
-      <div class="eyebrow">彭頌哲自學資料分析與成果展示網站</div>
+      <div class="eyebrow">自學生學習歷程分析與成果展示</div>
       <h1>彭頌哲學習分析網站</h1>
       <p class="desc">
-        這個網站整理了彭頌哲的 YouTube 自學觀看資料、學習脈絡、議題討論與觀點報告。透過互動式 Dashboard 與主題頁面，呈現他的學習主題、內容類型、知識來源、思考方向與觀點輸出。
+        本網站整理彭頌哲自 2023 年起的 YouTube 自學觀看資料、學習脈絡、議題討論與觀點報告。透過互動式數據分析頁面與主題報告，完整呈現其學習主題分布、知識來源、思考脈絡與觀點輸出歷程，供審議委員查閱參考。
       </p>
     </div>
 
     <div class="grid">
       <div class="card">
         <h2>自學分析 Dashboard</h2>
-        <div class="meta">學習軌跡｜主題演化｜核心頻道｜知識來源</div>
-        <p>查看整體自學歷程、主題變化、時間分布、核心知識來源，以及可直接整理進學習歷程報告的分析結論。</p>
-        <a class="btn" href="彭頌哲自學分析Dashboard_大字版.html">進入查看</a>
+        <div class="meta">學習軌跡　·　主題演化　·　核心頻道　·　知識來源</div>
+        <p>整體自學歷程、主題變化趨勢、時間分布、核心知識來源分析，含可直接引用至學習歷程報告的結論摘要。</p>
+        <a class="btn" href="彭頌哲自學分析Dashboard_大字版.html">進入查看 →</a>
       </div>
 
       <div class="card">
         <h2>內容類型分析 Dashboard</h2>
-        <div class="meta">觀看標題｜內容風格｜關鍵詞｜問題意識</div>
-        <p>查看影片標題、內容類型、風格分布、關鍵詞群聚與隱藏洞察，更清楚看出他平常實際接觸了哪些內容。</p>
-        <a class="btn" href="彭頌哲內容類型分析Dashboard_大字版.html">進入查看</a>
+        <div class="meta">觀看標題　·　內容風格　·　關鍵詞聚類　·　問題意識</div>
+        <p>以影片標題為基礎，分析內容類型、風格分布、關鍵詞群聚，呈現其平日實際接觸的知識內容全貌。</p>
+        <a class="btn" href="彭頌哲內容類型分析Dashboard_大字版.html">進入查看 →</a>
       </div>
 
       <div class="card">
-        <h2>頌哲 YouTube 學習標題 Dashboard</h2>
-        <div class="meta">影片標題詳列｜日期篩選｜內容分類｜頻道分析</div>
-        <p>查看頌哲的 YouTube 觀看標題詳列，可用關鍵字、日期、內容分類與頻道做互動篩選，快速看出他看了哪些影片與主題。</p>
-        <a class="btn" href="彭頌哲YouTube學習標題Dashboard_大字版.html">進入查看</a>
+        <h2>YouTube 學習標題 Dashboard</h2>
+        <div class="meta">影片標題詳列　·　日期篩選　·　內容分類　·　頻道分析</div>
+        <p>逐筆列出 YouTube 觀看標題，支援關鍵字、日期區間、內容分類與頻道等互動篩選，完整可追溯。</p>
+        <a class="btn" href="彭頌哲YouTube學習標題Dashboard_大字版.html">進入查看 →</a>
+      </div>
+
+      <div class="card">
+        <h2>活動照片紀錄</h2>
+        <div class="meta">戶外活動　·　生活學習　·　自然體驗　·　實地紀錄</div>
+        <p>收錄頌哲參與戶外活動與實地體驗的照片紀錄，呈現學習歷程中的生活實踐面向，補足數據報告以外的真實生活樣貌。</p>
+        <a class="btn" href="activity-photo-records.html">進入查看 →</a>
       </div>
 
       <div class="card">
         <h2>議題思辨與學習心得</h2>
-        <div class="meta">書籍討論｜議題思辨｜閱讀反思｜觀點輸出</div>
-        <p>整理頌哲對書籍、觀點與各類議題的討論心得，呈現他如何從閱讀、對話、辯論到形成自己的理解與判斷。</p>
-        <a class="btn" href="議題思辨與學習心得.html">進入查看</a>
+        <div class="meta">書籍討論　·　議題思辨　·　閱讀反思　·　觀點輸出</div>
+        <p>整理頌哲對書籍與各類議題的討論心得，呈現其如何從閱讀、對話、辯論，逐步形成自己的理解與判斷。</p>
+        <a class="btn" href="議題思辨與學習心得.html">進入查看 →</a>
       </div>
 
       <div class="card">
         <h2>學習成果與觀點報告</h2>
-        <div class="meta">自學成果｜思考脈絡｜觀點形成｜模擬展示稿</div>
-        <p>查看以第一人稱整理的學習成果與觀點報告，呈現頌哲目前的學習動機、方法、核心主題、形成的能力與後續方向。</p>
-        <a class="btn" href="頌哲學習成果與觀點報告_大字版.html">進入查看</a>
+        <div class="meta">自學成果　·　思考脈絡　·　觀點形成　·　正式展示稿</div>
+        <p>以第一人稱整理的學習成果與觀點報告，呈現頌哲目前的學習動機、方法、核心主題、能力形成與後續方向。</p>
+        <a class="btn" href="頌哲學習成果與觀點報告_大字版.html">進入查看 →</a>
       </div>
     </div>
 

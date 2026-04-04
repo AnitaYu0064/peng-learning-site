@@ -6,32 +6,46 @@
   <title>彭頌哲討論心得｜重新理解《被討厭的勇氣》</title>
   <style>
     :root{
-      --bg:#f6f8fc;
+      --bg:#f7f8fa;
       --paper:#ffffff;
-      --text:#1f2937;
-      --sub:#4b5563;
-      --line:#e5e7eb;
-      --accent:#3730a3;
-      --soft:#e0e7ff;
-      --shadow:0 10px 30px rgba(15,23,42,.08);
+      --text:#111827;
+      --sub:#374151;
+      --line:#e2e8f0;
+      --accent:#1d4ed8;
+      --soft:#eff6ff;
+      --accent2:#1a2744;
+      --header-bg:#1a2744;
+      --shadow:0 2px 8px rgba(0,0,0,.04), 0 6px 20px rgba(26,39,68,.06);
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
-      background:linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%);
+      background:#f7f8fa;
       color:var(--text);
       line-height:1.95;
       font-size:18px;
     }
-    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 64px;}
-    .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px;}
-    .home-btn{
-      display:inline-flex;align-items:center;gap:8px;text-decoration:none;
-      background:#111827;color:#fff;padding:12px 18px;border-radius:14px;
-      font-size:18px;font-weight:800;box-shadow:0 8px 24px rgba(15,23,42,.10);
+    /* ── SITE HEADER ── */
+    .site-header{background:var(--header-bg);padding:14px 24px;box-shadow:0 2px 14px rgba(26,39,68,.22);}
+    .site-header-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+    .site-header-label{color:rgba(255,255,255,.65);font-size:13px;font-weight:700;letter-spacing:0.4px;}
+    /* ── NAV BUTTONS ── */
+    .page-nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:18px;padding-top:4px;}
+    .nav-btn{
+      display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+      background:var(--accent);color:#fff !important;
+      padding:10px 18px;border-radius:10px;font-size:15px;font-weight:700;
+      box-shadow:0 3px 10px rgba(29,78,216,.2);
+      transition:background .18s,transform .15s;
     }
-    .home-btn:hover{background:#000;}
+    .nav-btn:hover{background:#1e3a8a;transform:translateY(-1px);}
+    .nav-btn.outline{
+      background:#fff;color:var(--accent) !important;
+      border:2px solid #e2e8f0;box-shadow:none;
+    }
+    .nav-btn.outline:hover{background:#eff6ff;border-color:var(--accent);}
+    .wrap{max-width:980px;margin:0 auto;padding:24px 18px 64px;}
     .paper{
       background:var(--paper);
       border:1px solid var(--line);
@@ -40,8 +54,7 @@
       padding:40px 42px 46px;
     }
     .eyebrow{
-      display:inline-block;padding:6px 12px;border-radius:999px;background:var(--soft);
-      color:var(--accent);font-size:13px;font-weight:800;margin-bottom:14px;
+      display:inline-block;padding:4px 10px;border-radius:4px;background:var(--accent2);color:#fff;font-size:11px;font-weight:700;margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;
     }
     h1{
       margin:0 0 10px;
@@ -129,9 +142,15 @@
   </style>
 </head>
 <body>
+  <div class="site-header">
+    <div class="site-header-inner">
+      <span class="site-header-label">彭頌哲自學歷程記錄網站</span>
+    </div>
+  </div>
   <div class="wrap">
-    <div class="topbar">
-      <a class="home-btn" href="議題思辨與學習心得.html">← 返回議題頁</a>
+    <div class="page-nav">
+      <a class="nav-btn" href="index.html">← 返回首頁</a>
+      <a class="nav-btn outline" href="議題思辨與學習心得.html">← 返回議題頁</a>
     </div>
 
     <article class="paper">
