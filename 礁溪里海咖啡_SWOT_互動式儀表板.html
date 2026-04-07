@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>里海咖啡競品 SWOT 互動式儀表板</title>
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --ink:#172033;
+      --muted:#60708a;
+      --line:#dce5f1;
+      --accent:#1f6feb;
+      --accent-2:#0f9d58;
+      --warn:#f2994a;
+      --danger:#d93025;
+      --soft:#eef4ff;
+      --shadow:0 12px 32px rgba(21,34,66,.08);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.6}
+    body{padding:18px}
+    .wrap{max-width:1380px;margin:0 auto}
+    .hero,.panel,.card,.swot-card,.metric-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .hero{padding:24px 22px;margin-bottom:16px}
+    h1{font-size:clamp(2rem,4.8vw,3.1rem);line-height:1.12;margin:0 0 10px}
+    h2{font-size:1.4rem;margin:0 0 10px}
+    h3{font-size:1.1rem;margin:0 0 8px}
+    .sub{font-size:1.04rem;color:var(--muted);margin:0 0 14px}
+    .badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .badge{padding:9px 14px;border-radius:999px;background:var(--soft);color:var(--accent);font-weight:800;font-size:.96rem}
+    .grid-2{display:grid;grid-template-columns:1.12fr .88fr;gap:16px;margin-bottom:16px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .panel{padding:18px}
+    .metric-card{padding:14px;background:#fbfcff}
+    .metric-card .label{font-size:.9rem;color:var(--muted);font-weight:800}
+    .metric-card .value{font-size:1.55rem;font-weight:900;margin-top:4px}
+    .metric-card .hint{font-size:.9rem;color:var(--muted);margin-top:6px}
+
+    .tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+    .tab-btn{padding:11px 14px;border:1px solid var(--line);background:#fff;border-radius:14px;cursor:pointer;font-weight:800;font-size:.98rem;color:var(--ink)}
+    .tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .tab-pane{display:none}
+    .tab-pane.active{display:block}
+
+    .controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+    .controls select,.controls input,.controls button{border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px 14px;font-size:1rem;color:var(--ink)}
+    .controls button{font-weight:800;cursor:pointer}
+    .controls button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .card{padding:16px}
+    .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+    .name{font-size:1.34rem;font-weight:900;margin:0}
+    .score{font-size:1.3rem;font-weight:900;color:var(--accent)}
+    .subline{color:var(--muted);font-size:.98rem;margin-top:4px}
+    .stars{margin-top:6px;font-size:1rem;letter-spacing:1px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+    .chip{padding:6px 10px;border-radius:999px;background:#f3f6fc;color:var(--muted);font-size:.88rem;font-weight:800}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+    .mini{padding:11px;border:1px solid var(--line);border-radius:14px;background:#fbfcff}
+    .mini .t{font-size:.86rem;color:var(--muted);font-weight:800}
+    .mini .v{font-size:1.06rem;font-weight:900;margin-top:4px}
+    .barbox{margin:12px 0}
+    .barlabel{display:flex;justify-content:space-between;font-size:.94rem;font-weight:800;margin-bottom:6px}
+    .bar{height:13px;background:#ebf0fa;border-radius:999px;overflow:hidden}
+    .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#73a8ff,#1f6feb)}
+    .obs{font-size:.98rem;background:#fcfdff;border:1px dashed var(--line);padding:12px;border-radius:14px;margin-top:12px}
+    .link-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .link-row a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;padding:10px 12px;border-radius:12px;background:#eef4ff;color:var(--accent);font-weight:800;font-size:.94rem;border:1px solid #d7e4ff}
+
+    table{width:100%;border-collapse:collapse;font-size:.97rem}
+    th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{font-size:.92rem;color:var(--muted);font-weight:800;position:sticky;top:0;background:#fff;z-index:1}
+    tr:hover td{background:#fbfcff}
+    .table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eef4ff;color:var(--accent);font-weight:800;font-size:.88rem}
+
+    .matrix-wrap{padding:8px 0 0}
+    .matrix{position:relative;height:460px;border:1px solid var(--line);border-radius:18px;background:
+      linear-gradient(to right, transparent 49.7%, #d9e1ef 49.7%, #d9e1ef 50.3%, transparent 50.3%),
+      linear-gradient(to top, transparent 49.7%, #d9e1ef 49.7%, #d9e1ef 50.3%, transparent 50.3%),
+      linear-gradient(#fdfefe,#f8fbff);
+      overflow:hidden;
+    }
+    .axis-x,.axis-y{position:absolute;color:var(--muted);font-weight:800;font-size:.92rem}
+    .axis-x{bottom:10px;left:50%;transform:translateX(-50%)}
+    .axis-y{top:50%;left:10px;transform:translateY(-50%) rotate(-90deg);transform-origin:left top}
+    .quad{position:absolute;font-size:.92rem;font-weight:800;color:var(--muted);background:rgba(255,255,255,.75);padding:6px 10px;border-radius:999px;border:1px solid var(--line)}
+    .quad.q1{top:14px;right:14px}
+    .quad.q2{top:14px;left:14px}
+    .quad.q3{bottom:14px;left:14px}
+    .quad.q4{bottom:14px;right:14px}
+    .dot{position:absolute;transform:translate(-50%,-50%);border-radius:999px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;cursor:pointer;box-shadow:0 8px 18px rgba(22,41,77,.18);border:2px solid rgba(255,255,255,.9)}
+    .dot span{padding:0 8px;text-align:center;font-size:.9rem;line-height:1.15}
+    .tooltip{position:absolute;display:none;min-width:260px;max-width:300px;background:#1d2a44;color:#fff;border-radius:16px;padding:14px;box-shadow:0 18px 40px rgba(16,24,40,.28);z-index:10}
+    .tooltip h4{margin:0 0 6px;font-size:1rem}
+    .tooltip p{margin:6px 0 0;font-size:.92rem;line-height:1.5;color:#eef3ff}
+
+    .swot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .swot-card{padding:16px}
+    .swot-card.s{border-top:6px solid #2d9cdb}
+    .swot-card.w{border-top:6px solid #f2994a}
+    .swot-card.o{border-top:6px solid #0f9d58}
+    .swot-card.t{border-top:6px solid #d93025}
+    .swot-card ul{margin:0;padding-left:20px}
+    .swot-card li{margin:8px 0}
+
+    .action-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .action{padding:14px;border:1px solid var(--line);border-radius:16px;background:#fbfcff}
+    .action h3{margin:0 0 6px}
+    .action p{margin:0;color:var(--ink)}
+    .small{font-size:.93rem;color:var(--muted)}
+    .footer-note{font-size:.93rem;color:var(--muted);margin-top:12px}
+
+    @media (max-width: 1020px){
+      .grid-2,.grid-3,.cards,.swot-grid,.action-grid{grid-template-columns:1fr}
+      .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .matrix{height:380px}
+    }
+    @media (max-width: 640px){
+      body{padding:12px}
+      .hero,.panel,.card,.swot-card,.metric-card{border-radius:18px}
+      .name{font-size:1.42rem}
+      .metrics{grid-template-columns:1fr 1fr}
+      .metric-card .value{font-size:1.42rem}
+      table{min-width:1080px}
+      .controls select,.controls input,.controls button,.link-row a,.obs,.sub,.small,td,th{font-size:1.01rem}
+      .matrix{height:320px}
+      .dot span{font-size:.82rem}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <h1>礁溪里海咖啡｜競品整合 SWOT 互動式儀表板</h1>
+    <p class="sub">整合 <strong>使用者提供的 Gemini 競品聲量觀察</strong> 與 <strong>先前公開資料盤點</strong>，用來回答兩件事：現在外部市場怎麼分流里海，以及里海下一步該升級什麼，才不會被「模仿、替代、分流、稀釋」。</p>
+    <div class="badge-row">
+      <span class="badge">7 家品牌：含里海基準</span>
+      <span class="badge">可切換：競品 / SWOT / 行動建議</span>
+      <span class="badge">內含模仿手法與分流邏輯</span>
+      <span class="badge">數字含估值與公開快照註記</span>
+    </div>
+  </section>
+
+  <section class="grid-2">
+    <div class="panel">
+      <h2>這份儀表板的核心結論</h2>
+      <div class="grid-3">
+        <div class="metric-card">
+          <div class="label">最直接模仿者</div>
+          <div class="value">樂漁鮮食</div>
+          <div class="hint">同在礁溪，連社群鏡頭語言都近似</div>
+        </div>
+        <div class="metric-card">
+          <div class="label">最強氛圍競品</div>
+          <div class="value">二漁咖啡</div>
+          <div class="hint">不是抄里海人設，而是重做情緒價值</div>
+        </div>
+        <div class="metric-card">
+          <div class="label">最直接替代店</div>
+          <div class="value">漁田村</div>
+          <div class="hint">位置、品類與客滿轉單風險最高</div>
+        </div>
+      </div>
+      <div class="grid-3" style="margin-top:12px;">
+        <div class="metric-card">
+          <div class="label">份量視覺競爭</div>
+          <div class="value">山漁海</div>
+          <div class="hint">用澎湃感與爆量配菜切社群流量</div>
+        </div>
+        <div class="metric-card">
+          <div class="label">景觀升級競爭</div>
+          <div class="value">伍參港</div>
+          <div class="hint">海景 + 精緻路線，不是便宜版替代</div>
+        </div>
+        <div class="metric-card">
+          <div class="label">價格段分流</div>
+          <div class="value">竹谷定食</div>
+          <div class="hint">高 CP 值與半自助，切走務實型消費者</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>判讀方法</h2>
+      <ul style="margin:0;padding-left:20px;">
+        <li><strong>相似度</strong>：競品跟里海在品類語言、拍攝視角、職人敘事與空間體驗上的接近程度。</li>
+        <li><strong>Google 食記篇數 / IG 標籤總數 / Reels 熱度</strong>：主要採用 Gemini 版本的相對估值，用來看擴散面，不當成審計數字。</li>
+        <li><strong>社群公開快照</strong>：加入先前盤點的 FB / IG 公開頁面量級，作為品牌量體的參考層。</li>
+        <li><strong>SWOT</strong>：這次不是財務版 SWOT，而是<strong>外部競爭版 SWOT</strong>，重點放在模仿、替代、分流與品牌稀釋風險。</li>
+      </ul>
+      <p class="footer-note">建議使用方式：先看「競品地圖」理解誰在搶什麼，再看「SWOT」判斷里海該強化哪一層護城河。</p>
+    </div>
+  </section>
+
+  <section class="panel" style="margin-bottom:16px;">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-competition">競品總覽</button>
+      <button class="tab-btn" data-tab="tab-swot">SWOT 分析</button>
+      <button class="tab-btn" data-tab="tab-actions">策略動作</button>
+    </div>
+
+    <div id="tab-competition" class="tab-pane active">
+      <div class="grid-2" style="margin-bottom:16px;">
+        <div class="panel" style="padding:16px;">
+          <h2>競爭地圖：相似度 × 分流威脅</h2>
+          <p class="small">橫軸越右，表示越像里海；縱軸越高，表示越容易分流里海的訂單或注意力。泡泡越大，表示外部聲量越強。</p>
+          <div class="matrix-wrap">
+            <div class="matrix" id="matrix">
+              <div class="axis-x">→ 越右越像里海（語言 / 品類 / 社群鏡頭）</div>
+              <div class="axis-y">越高越容易分流里海 ←</div>
+              <div class="quad q1">高相似 × 高威脅</div>
+              <div class="quad q2">低相似 × 高威脅</div>
+              <div class="quad q3">低相似 × 低威脅</div>
+              <div class="quad q4">高相似 × 低威脅</div>
+              <div class="tooltip" id="tooltip"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="padding:16px;">
+          <h2>競品卡片</h2>
+          <div class="controls">
+            <select id="sortSelect">
+              <option value="threat">依綜合威脅度排序</option>
+              <option value="similarity">依與里海相似度排序</option>
+              <option value="reviews">依評論數排序</option>
+              <option value="igtags">依 IG 標籤量排序</option>
+            </select>
+            <button class="active" data-filter="all">全部</button>
+            <button data-filter="high">高威脅</button>
+            <button data-filter="medium">中威脅</button>
+            <button data-filter="low">低威脅</button>
+            <input id="keyword" type="text" placeholder="搜尋：老宅、海景、替代、模仿…" />
+          </div>
+          <div id="cards" class="cards"></div>
+        </div>
+      </div>
+
+      <div class="panel" style="padding:16px;">
+        <h2>整合競品比較表</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>品牌</th>
+                <th>與里海相似度</th>
+                <th>Google 評分</th>
+                <th>評論數（約）</th>
+                <th>Google 食記篇數（推估）</th>
+                <th>IG 標籤總數（推估）</th>
+                <th>Reels 熱度</th>
+                <th>先前盤點社群快照</th>
+                <th>核心定位與模仿 / 分流觀察</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+        <p class="footer-note">註：食記篇數、IG 標籤總數、Reels 熱度屬相對估值；「社群快照」為先前公開資料盤點，不保證等於平台此刻即時值。</p>
+      </div>
+    </div>
+
+    <div id="tab-swot" class="tab-pane">
+      <div class="swot-grid">
+        <div class="swot-card s">
+          <h2>S｜Strengths 里海的外部優勢</h2>
+          <ul>
+            <li><strong>品牌量體最大：</strong>目前在這個品類裡，里海仍是外部聲量、Google 累積評論、食記量與 IG 標籤量最強的基準品牌。</li>
+            <li><strong>心智定位最完整：</strong>「被咖啡耽誤的海鮮店」已經成為一句可被記住的市場語言，不只是賣魚，而是賣一種被驗證過的體驗。</li>
+            <li><strong>搜尋護城河成熟：</strong>高評論量、高食記量、高打卡量，表示里海不只靠短影音，而是搜尋、口碑、旅遊決策鏈都已有積累。</li>
+            <li><strong>品類權威感最強：</strong>競品能抄畫面、抄菜色、抄氛圍，但很難直接複製「里海懂魚」這種長期建立的專業感。</li>
+          </ul>
+        </div>
+
+        <div class="swot-card w">
+          <h2>W｜Weaknesses 里海的外部弱點</h2>
+          <ul>
+            <li><strong>語言容易被複製：</strong>「鮮魚定食 + 咖啡 + 職人感 + 文青畫面」這套語言，現在市場已經有人直接沿用或拆解重組。</li>
+            <li><strong>成熟品牌的新鮮感遞減：</strong>里海的強項是累積，但短影音時代的新店紅利常會讓模仿者在曝光上得到短期優勢。</li>
+            <li><strong>客滿時的替代流失：</strong>當等待時間過長或訂位卡住時，漁田村這類位置接近、體驗穩定的品牌會直接吃掉轉單。</li>
+            <li><strong>價格與精緻度之間的夾擊：</strong>往下有竹谷的 CP 值競爭，往上有伍參港的海景升級與精緻感，里海若不持續拉開差距，容易被兩端擠壓。</li>
+          </ul>
+        </div>
+
+        <div class="swot-card o">
+          <h2>O｜Opportunities 里海的外部機會</h2>
+          <ul>
+            <li><strong>把品牌權威再制度化：</strong>把「里海為什麼懂魚」做成更清楚的內容資產，例如魚種知識、採買邏輯、當日魚況、產地故事。</li>
+            <li><strong>強化不可替代的品牌記憶：</strong>讓客人不是只記得好吃，而是記得里海的代表性菜色、代表性敘事與代表性場景。</li>
+            <li><strong>把高搜尋量轉成延伸產品：</strong>里海已有足夠搜尋與口碑基礎，較適合發展限定商品、禮盒、冷凍品或旅後回購型產品。</li>
+            <li><strong>內容分層化：</strong>Reels 負責擴散、Google/食記承接搜尋、官方訂位頁負責轉單，里海可以比小店更有條件做完整內容漏斗。</li>
+          </ul>
+        </div>
+
+        <div class="swot-card t">
+          <h2>T｜Threats 里海的外部威脅</h2>
+          <ul>
+            <li><strong>直接模仿：</strong>樂漁在品類命名、社群鏡頭、職人語氣上都高度接近，這會侵蝕里海的辨識度，而不是只分走一點訂單。</li>
+            <li><strong>情境替代：</strong>二漁用老宅、月球燈與更容易被拍照分享的空間氣質，把鮮魚定食重新包裝成另一種社群貨幣。</li>
+            <li><strong>務實型分流：</strong>竹谷透過半自助與高 CP 值，吸走不在乎職人敘事、只在乎吃飽和划算的客群。</li>
+            <li><strong>多版本市場切割：</strong>山漁海打澎湃、伍參港打海景、漁田村打替代與舒適，表示里海現在面對的是「一個被拆分完成的賽道」而不是單一競品。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-actions" class="tab-pane">
+      <div class="action-grid">
+        <div class="action">
+          <h3>1. 把「里海懂魚」做成明確資產</h3>
+          <p>不要只拍好吃與澎湃。未來內容應增加：當日魚種、處理方式、採買判斷、產地差異。這是最難被模仿的層。</p>
+        </div>
+        <div class="action">
+          <h3>2. 強化客滿時不流失的承接機制</h3>
+          <p>把等待理由講清楚，例如限量魚種、限定套餐、當日特別品。讓客人覺得值得等，而不是覺得「換一家差不多」。</p>
+        </div>
+        <div class="action">
+          <h3>3. 建立不可替代的代表菜與代表畫面</h3>
+          <p>里海不能只靠「鮮魚定食」這個大類。要讓市場想到某個畫面、某道菜、某句話時，只會想到里海。</p>
+        </div>
+        <div class="action">
+          <h3>4. 用內容分層打不同客群</h3>
+          <p>老饕要看專業、文青客要看體驗、旅遊客要看必吃理由、價格敏感客要看價值感。不要只用一種內容打全部人。</p>
+        </div>
+        <div class="action">
+          <h3>5. 定位上修，不跟低價賽道硬打</h3>
+          <p>竹谷這類品牌代表低價飽足型市場存在，但那不是里海該正面迎戰的賽道。里海應守住專業與品牌溢價，而非被拖進價格戰。</p>
+        </div>
+        <div class="action">
+          <h3>6. 讓模仿者只能抄表面，抄不到「正統性」</h3>
+          <p>品牌歷史、長期口碑、料理哲學、魚貨理解、團隊文化，都可以被整理成正式敘事。當市場開始模仿時，正統性要被放大。</p>
+        </div>
+      </div>
+      <p class="footer-note">一句話總結：里海現在最大的風險不是「被做得更便宜」，而是「被做得看起來都差不多」。真正要守的是辨識度與正統性。</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>資料層說明</h2>
+    <ul style="margin:0;padding-left:20px;">
+      <li>本版結合兩層資料：<strong>Gemini 版競品聲量估值</strong>（你提供）＋ <strong>先前公開盤點快照</strong>（我先前整理）。</li>
+      <li>Google 評分、評論數、食記篇數、IG 標籤量、Reels 熱度皆以「相對比較」為主，適合做策略判斷，不建議當作財務或正式法務文件數字。</li>
+      <li>社群快照（FB / IG）是輔助理解品牌量級，不代表即時平台值。若要做對外簡報，建議在正式使用前再人工複核一次。</li>
+    </ul>
+    <p class="footer-note">儀表板建立日期：<span id="today"></span></p>
+  </section>
+</div>
+
+<script>
+const brands = [
+  {
+    name:'里海咖啡',
+    similarityLabel:'基準指標', similarityStars:'基準', similarityNum:5,
+    rating:'4.1', reviews:3300, reviewLabel:'3300+', blogs:'100+（極高）', blogNum:110,
+    igTags:'4000+', igTagNum:4000, reelsLabel:'極高（王者級別）', reels:98,
+    threat:100, threatLevel:'all', brandPower:100,
+    official:'FB 約 54,522 按讚｜IG 約 1,381',
+    summary:'業界指標。被咖啡耽誤的海鮮店，累積最龐大老饕與打卡客群。',
+    observation:'核心護城河不只是魚，而是「懂魚的正統性 + 長期口碑 + 搜尋承接」。',
+    tags:['王者級別','品牌權威','礁溪','海鮮定食'],
+    x:78, y:92, size:34, color:'#1f6feb',
+    maps:'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('里海咖啡 礁溪'),
+    social:'https://www.google.com/search?q=' + encodeURIComponent('里海咖啡 Facebook Instagram'),
+    blogSearch:'https://www.google.com/search?q=' + encodeURIComponent('里海咖啡 食記 礁溪'),
+    videoSearch:'https://www.google.com/search?q=' + encodeURIComponent('里海咖啡 reels OR 短影音 OR Instagram Reel')
+  },
+  {
+    name:'二漁咖啡',
+    similarityLabel:'★★★★★', similarityStars:'★★★★★', similarityNum:5,
+    rating:'4.9', reviews:550, reviewLabel:'550+', blogs:'30–50（高）', blogNum:40,
+    igTags:'1200+', igTagNum:1200, reelsLabel:'非常高（擴散極快）', reels:90,
+    threat:89, threatLevel:'high', brandPower:74,
+    official:'FB 約 5,799 按讚｜IG 約 1,285',
+    summary:'最強老宅競品。抄殼不抄人，主打月球燈老宅氛圍與豐盛定食。',
+    observation:'不是複製里海的職人權威，而是把鮮魚定食改寫成更好拍、更有情緒價值的老宅版本。',
+    tags:['老宅','月球燈','氛圍競品','冬山'],
+    x:74, y:86, size:26, color:'#7b61ff',
+    maps:'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('二漁咖啡 宜蘭 冬山'),
+    social:'https://www.google.com/search?q=' + encodeURIComponent('twofish_coffee Instagram Facebook'),
+    blogSearch:'https://www.google.com/search?q=' + encodeURIComponent('二漁咖啡 食記'),
+    videoSearch:'https://www.google.com/search?q=' + encodeURIComponent('二漁咖啡 reels OR 短影音')
+  },
+  {
+    name:'樂漁鮮食',
+    similarityLabel:'★★★★★', similarityStars:'★★★★★', similarityNum:5,
+    rating:'4.8', reviews:450, reviewLabel:'450+', blogs:'20–30（中高）', blogNum:25,
+    igTags:'600–800', igTagNum:700, reelsLabel:'中高（店家自營強）', reels:68,
+    threat:92, threatLevel:'high', brandPower:62,
+    official:'FB 約 1,100 按讚｜IG 約 56',
+    summary:'像素級模仿。同在礁溪，強調自家漁船，幾乎複製手捧鮮魚、職人語氣與拍攝視角。',
+    observation:'雖然品牌量級還小，但對里海的辨識度侵蝕風險極高，因為它模仿的是語言與人設，不只是菜色。',
+    tags:['像素級模仿','礁溪','自家漁船','職人敘事'],
+    x:90, y:88, size:22, color:'#d93025',
+    maps:'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('樂漁鮮魚定食 咖啡 礁溪'),
+    social:'https://www.google.com/search?q=' + encodeURIComponent('樂漁鮮魚定食 咖啡 礁溪 Instagram Facebook'),
+    blogSearch:'https://www.google.com/search?q=' + encodeURIComponent('樂漁鮮魚定食 食記 礁溪'),
+    videoSearch:'https://www.google.com/search?q=' + encodeURIComponent('樂漁鮮魚定食 reels OR 短影音')
+  },
+  {
+    name:'漁田村',
+    similarityLabel:'★★★★☆', similarityStars:'★★★★☆', similarityNum:4,
+    rating:'4.7', reviews:250, reviewLabel:'250+', blogs:'15–20（中）', blogNum:18,
+    igTags:'300+', igTagNum:300, reelsLabel:'中低（靜態圖文居多）', reels:32,
+    threat:76, threatLevel:'medium', brandPower:58,
+    official:'FB 約 1,830 按讚｜IG 約 153',
+    summary:'地理位置重疊。走日式女孩清新風，為里海客滿時最直接的替代方案。',
+    observation:'它不一定最強，但在里海客滿、帶長輩、想停車穩定的情境裡，轉單風險很實際。',
+    tags:['替代方案','礁溪','清新風','舒適聚餐'],
+    x:68, y:74, size:20, color:'#0f9d58',
+    maps:'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('礁溪漁田村'),
+    social:'https://www.google.com/search?q=' + encodeURIComponent('礁溪漁田村 Instagram Facebook'),
+    blogSearch:'https://www.google.com/search?q=' + encodeURIComponent('漁田村 礁溪 食記'),
+    videoSearch:'https://www.google.com/search?q=' + encodeURIComponent('漁田村 礁溪 reels OR 短影音')
+  },
+  {
+    name:'山漁海',
+    similarityLabel:'★★★★☆', similarityStars:'★★★★☆', similarityNum:4,
+    rating:'4.7', reviews:200, reviewLabel:'200+', blogs:'15–20（中）', blogNum:18,
+    igTags:'300+', igTagNum:300, reelsLabel:'中低（單一視覺爆點）', reels:35,
+    threat:74, threatLevel:'medium', brandPower:57,
+    official:'FB 約 2,908 按讚｜IG 約 1,219',
+    summary:'澎湃度代表。粗暴的份量感取勝，影片焦點集中在尖起來的吻仔魚飯與 7 道配菜。',
+    observation:'它賣的不是里海式精緻，而是視覺衝擊與配菜數量。對社群有效，但品牌深度較薄。',
+    tags:['份量感','視覺爆點','冬山','澎湃'],
+    x:62, y:69, size:20, color:'#f2994a',
+    maps:'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('山漁海 本地海鮮定食 宜蘭'),
+    social:'https://www.google.com/search?q=' + encodeURIComponent('山漁海 Instagram Facebook'),
+    blogSearch:'https://www.google.com/search?q=' + encodeURIComponent('山漁海 食記 宜蘭'),
+    videoSearch:'https://www.google.com/search?q=' + encodeURIComponent('山漁海 reels OR 短影音')
+  },
+  {
+    name:'伍參港',
+    similarityLabel:'★★★☆☆', similarityStars:'★★★☆☆', similarityNum:3,
+    rating:'4.6', reviews:400, reviewLabel:'400+', blogs:'40–50（高）', blogNum:45,
+    igTags:'1000+', igTagNum:1000, reelsLabel:'中高（海景紅利）', reels:60,
+    threat:70, threatLevel:'medium', brandPower:68,
+    official:'FB 約 2,818 按讚｜IG 約 75',
+    summary:'精緻品牌化。外澳海景加持，走產地到餐桌的高級質感路線。',
+    observation:'它不是便宜版里海，而是把鮮魚定食做成更值得專程去、順便看海的旅遊目的地。',
+    tags:['海景','頭城','品牌化','高級感'],
+    x:46, y:73, size:24, color:'#00a3a3',
+    maps:'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('伍參港 海廚料理 頭城'),
+    social:'https://www.google.com/search?q=' + encodeURIComponent('伍參港 Instagram Facebook'),
+    blogSearch:'https://www.google.com/search?q=' + encodeURIComponent('伍參港 食記 頭城'),
+    videoSearch:'https://www.google.com/search?q=' + encodeURIComponent('伍參港 reels OR 短影音')
+  },
+  {
+    name:'竹谷定食',
+    similarityLabel:'★★☆☆☆', similarityStars:'★★☆☆☆', similarityNum:2,
+    rating:'4.8–5.0（新店期）', reviews:120, reviewLabel:'50–150（累積中）', blogs:'<5 篇（尚未發酵）', blogNum:4,
+    igTags:'<50', igTagNum:45, reelsLabel:'極低（尚無擴散）', reels:12,
+    threat:54, threatLevel:'low', brandPower:42,
+    official:'FB 約 735 按讚｜IG 約 210',
+    summary:'差異化競爭。主打平價與半自助式，改攻高 CP 值與吃飽需求，社群打卡擴散力較弱。',
+    observation:'雖然也賣鮮魚定食，但它跳脫里海的職人氛圍，切的是務實型、價格敏感型家庭客。',
+    tags:['高 CP 值','半自助','宜蘭市','務實客群'],
+    x:28, y:42, size:17, color:'#7f8c8d',
+    maps:'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('竹谷定食 宜蘭'),
+    social:'https://www.google.com/search?q=' + encodeURIComponent('竹谷定食 Instagram Facebook'),
+    blogSearch:'https://www.google.com/search?q=' + encodeURIComponent('竹谷定食 食記 宜蘭'),
+    videoSearch:'https://www.google.com/search?q=' + encodeURIComponent('竹谷定食 reels OR 短影音')
+  }
+];
+
+const cards = document.getElementById('cards');
+const tbody = document.getElementById('tbody');
+const matrix = document.getElementById('matrix');
+const tooltip = document.getElementById('tooltip');
+const sortSelect = document.getElementById('sortSelect');
+const keyword = document.getElementById('keyword');
+let activeFilter = 'all';
+
+function fmt(n){
+  if(typeof n !== 'number') return n;
+  if(n >= 1000) return (n/1000).toFixed(n % 1000 === 0 ? 0 : 1) + 'k';
+  return String(n);
+}
+function levelText(v){
+  if(v >= 85) return '高威脅';
+  if(v >= 70) return '中威脅';
+  return '低威脅';
+}
+function sortList(list){
+  const mode = sortSelect.value;
+  return [...list].sort((a,b)=>{
+    if(mode === 'similarity') return b.similarityNum - a.similarityNum || b.threat - a.threat;
+    if(mode === 'reviews') return b.reviews - a.reviews;
+    if(mode === 'igtags') return b.igTagNum - a.igTagNum;
+    return b.threat - a.threat;
+  });
+}
+function getFiltered(){
+  const q = keyword.value.trim().toLowerCase();
+  return brands.filter(b=>{
+    const levelOk = activeFilter === 'all' ? true : b.threatLevel === activeFilter;
+    const hay = [b.name,b.summary,b.observation,b.tags.join(' '),b.official].join(' ').toLowerCase();
+    const qOk = !q || hay.includes(q);
+    return levelOk && qOk;
+  });
+}
+function renderCards(){
+  const list = sortList(getFiltered());
+  cards.innerHTML = list.map(b=>`
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <h3 class="name">${b.name}</h3>
+          <div class="subline">${b.similarityLabel} ・ ${levelText(b.threat)}</div>
+          <div class="stars">${b.similarityStars}</div>
+        </div>
+        <div class="score">${b.threat}</div>
+      </div>
+      <div class="chip-row">${b.tags.map(t=>`<span class="chip">${t}</span>`).join('')}</div>
+      <div class="metrics">
+        <div class="mini"><div class="t">Google 評分</div><div class="v">${b.rating}</div></div>
+        <div class="mini"><div class="t">評論數</div><div class="v">${b.reviewLabel}</div></div>
+        <div class="mini"><div class="t">IG 標籤</div><div class="v">${b.igTags}</div></div>
+      </div>
+      <div class="barbox">
+        <div class="barlabel"><span>綜合威脅度</span><span>${b.threat}/100</span></div>
+        <div class="bar"><div class="fill" style="width:${b.threat}%"></div></div>
+      </div>
+      <div class="barbox">
+        <div class="barlabel"><span>Reels 熱度</span><span>${b.reels}/100</span></div>
+        <div class="bar"><div class="fill" style="width:${b.reels}%"></div></div>
+      </div>
+      <div class="obs"><strong>核心定位：</strong>${b.summary}<br><br><strong>觀察：</strong>${b.observation}<br><br><strong>社群快照：</strong>${b.official}</div>
+      <div class="link-row">
+        <a href="${b.maps}" target="_blank" rel="noopener">Google Maps</a>
+        <a href="${b.social}" target="_blank" rel="noopener">社群查證</a>
+        <a href="${b.blogSearch}" target="_blank" rel="noopener">Google 食記</a>
+        <a href="${b.videoSearch}" target="_blank" rel="noopener">短影音查證</a>
+      </div>
+    </article>
+  `).join('');
+}
+function renderTable(){
+  tbody.innerHTML = brands.map(b=>`
+    <tr>
+      <td><strong>${b.name}</strong></td>
+      <td>${b.similarityLabel}</td>
+      <td>${b.rating}</td>
+      <td>${b.reviewLabel}</td>
+      <td>${b.blogs}</td>
+      <td>${b.igTags}</td>
+      <td><span class="pill">${b.reelsLabel}</span></td>
+      <td>${b.official}</td>
+      <td>${b.summary} ${b.observation}</td>
+    </tr>
+  `).join('');
+}
+function renderMatrix(){
+  const existing = matrix.querySelectorAll('.dot');
+  existing.forEach(el=>el.remove());
+  brands.forEach((b, idx)=>{
+    const dot = document.createElement('div');
+    dot.className = 'dot';
+    dot.style.left = b.x + '%';
+    dot.style.top = (100 - b.y) + '%';
+    dot.style.width = (b.size + 24) + 'px';
+    dot.style.height = (b.size + 24) + 'px';
+    dot.style.background = b.color;
+    dot.innerHTML = `<span>${b.name.replace('咖啡','').replace('定食','')}</span>`;
+    dot.addEventListener('mouseenter', (e)=>showTooltip(e,b));
+    dot.addEventListener('mousemove', (e)=>showTooltip(e,b));
+    dot.addEventListener('mouseleave', hideTooltip);
+    dot.addEventListener('click', (e)=>showTooltip(e,b));
+    matrix.appendChild(dot);
+  });
+}
+function showTooltip(e,b){
+  tooltip.style.display = 'block';
+  tooltip.innerHTML = `<h4>${b.name}</h4><div style="font-size:.9rem;color:#b9c8ea;font-weight:700;">${b.similarityLabel} ・ ${levelText(b.threat)} ・ 綜合威脅 ${b.threat}/100</div><p>${b.summary}</p><p>${b.observation}</p>`;
+  const rect = matrix.getBoundingClientRect();
+  const left = e.clientX - rect.left + 18;
+  const top = e.clientY - rect.top + 18;
+  tooltip.style.left = Math.min(left, rect.width - 300) + 'px';
+  tooltip.style.top = Math.min(top, rect.height - 150) + 'px';
+}
+function hideTooltip(){ tooltip.style.display = 'none'; }
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+document.querySelectorAll('[data-filter]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('[data-filter]').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    renderCards();
+  });
+});
+sortSelect.addEventListener('change', renderCards);
+keyword.addEventListener('input', renderCards);
+document.getElementById('today').textContent = new Date().toLocaleDateString('zh-TW');
+renderCards();
+renderTable();
+renderMatrix();
+</script>
+</body>
+</html>
