@@ -1,19 +1,6 @@
-/*
-  議題文章資料
-  ------------------------------------------------------------
-  使用方式：
-  1. 新增一篇文章 HTML 到 reflections 資料夾。
-  2. 複製下方任一筆資料，在陣列最上方或最下方新增。
-  3. date 請填 YYYY-MM-DD，例如 2026-07-27。
-  4. 網頁會自動依 date 由新到舊排列，不必手動搬動文章卡片。
-
-  目前四篇舊文章的實際發表日期尚未確認，因此 date 暫時留空。
-  你只要補上正確日期，排序就會立即生效。
-*/
-
 window.REFLECTION_ARTICLES = [
   {
-    date: "",
+    date: "2026-03-31",
     title: "《被討厭的勇氣》我的觀點？",
     tags: ["書籍反思", "主觀世界", "目的論", "責任與選擇"],
     description:
@@ -22,7 +9,7 @@ window.REFLECTION_ARTICLES = [
     status: "階段完成"
   },
   {
-    date: "",
+    date: "2026-04-04",
     title: "自由與責任，是否忽略了能動性條件？",
     tags: ["阿德勒心理學", "能動性", "自由", "責任邊界"],
     description:
@@ -31,7 +18,7 @@ window.REFLECTION_ARTICLES = [
     status: "階段完成"
   },
   {
-    date: "",
+    date: "2026-04-21",
     title: "現行教育制度真的適合所有學生嗎？",
     tags: ["教育制度", "學習動力", "個體差異", "好奇心"],
     description:
@@ -40,7 +27,7 @@ window.REFLECTION_ARTICLES = [
     status: "階段完成"
   },
   {
-    date: "",
+    date: "2026-05-12",
     title: "我所理解的哲學",
     tags: ["哲學理解", "思辨能力", "價值觀", "自我形成"],
     description:
@@ -48,19 +35,4 @@ window.REFLECTION_ARTICLES = [
     url: "what-philosophy-means-to-me.html",
     status: "階段完成"
   }
-
-  /*
-  新文章範例：取消這段註解後修改內容即可。
-
-  ,
-  {
-    date: "2026-07-27",
-    title: "為什麼偏偏是他？——論愛能否被理性解釋",
-    tags: ["愛的哲學", "心理學", "親密關係", "個人觀點"],
-    description:
-      "從愛是否能被條件完整解釋出發，先理解心理學如何研究愛，再回到哲學層次討論愛的特殊性。",
-    url: "love-and-reason.html",
-    status: "研究進行中"
-  }
-  */
 ];
