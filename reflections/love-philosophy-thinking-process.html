@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>《為什麼偏偏是他？》：愛情哲學觀點的形成與修正歷程</title>
+  <style>
+
+    :root{
+      --bg:#f6f8fc;
+      --paper:#ffffff;
+      --text:#1f2937;
+      --sub:#4b5563;
+      --line:#e5e7eb;
+      --accent:#3730a3;
+      --soft:#e0e7ff;
+      --shadow:0 10px 30px rgba(15,23,42,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif;
+      background:linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%);
+      color:var(--text);
+      line-height:1.95;
+      font-size:18px;
+    }
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 64px;}
+    .paper{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:40px 42px 46px;
+    }
+    h1{
+      margin:0 0 24px;
+      font-size:40px;
+      line-height:1.25;
+      letter-spacing:-.02em;
+    }
+    h2{
+      margin:30px 0 12px;
+      font-size:26px;
+      line-height:1.35;
+    }
+    p{margin:0 0 14px;}
+    .quote{
+      margin:16px 0;
+      padding:16px 18px;
+      border-left:4px solid var(--accent);
+      background:#f8faff;
+      border-radius:14px;
+      color:#334155;
+      font-size:17px;
+    }
+    @media print{
+      body{background:#fff;font-size:13pt;}
+      .wrap{max-width:none;padding:0;}
+      .paper{box-shadow:none;border:none;border-radius:0;padding:0;}
+      h1{font-size:24pt}
+      h2{font-size:16pt}
+      .quote{font-size:12pt}
+    }
+    @media (max-width:700px){
+      body{font-size:17px}
+      .paper{padding:28px 20px 34px}
+      h1{font-size:32px}
+      h2{font-size:23px}
+      .quote{font-size:16px}
+    }
+
+    /* ── NAV ── */
+    .site-header{background:#1a2744;padding:13px 24px;box-shadow:0 2px 14px rgba(26,39,68,.22);}
+    .site-header-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+    .site-header-label{color:rgba(255,255,255,.65);font-size:13px;font-weight:700;letter-spacing:0.4px;}
+    .page-nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap;max-width:980px;margin:16px auto 0;padding:0 18px;}
+    .nav-btn{
+      display:inline-flex;align-items:center;gap:7px;text-decoration:none;
+      background:#3730a3;color:#fff;
+      padding:9px 16px;border-radius:9px;font-size:14px;font-weight:700;
+      box-shadow:0 3px 10px rgba(55,48,163,.22);
+      transition:background .18s,transform .15s;
+    }
+    .nav-btn:hover{background:#1e3a8a;transform:translateY(-1px);}
+
+  
+    /* ── THINKING PROCESS REPORT ── */
+    .paper{
+      max-width:920px;
+      padding:50px 54px 62px;
+    }
+    .report-title{
+      max-width:790px;
+      margin:0 auto 12px;
+      text-align:center;
+      color:#172033;
+      font-size:38px;
+      line-height:1.4;
+    }
+    .original-title{
+      margin:0 auto 10px;
+      text-align:center;
+      color:#475569;
+      font-size:18px;
+      font-weight:700;
+    }
+    .method-line{
+      margin:0 auto 24px;
+      text-align:center;
+      color:#64748b;
+      font-size:15px;
+    }
+    .report-meta{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:8px 18px;
+      margin:0 0 42px;
+      padding:13px 18px;
+      border-top:1px solid #dbe3ef;
+      border-bottom:1px solid #dbe3ef;
+      color:#526174;
+      font-size:14px;
+    }
+    .timeline{
+      position:relative;
+      margin-top:8px;
+    }
+    .timeline::before{
+      content:"";
+      position:absolute;
+      top:10px;
+      bottom:10px;
+      left:13px;
+      width:2px;
+      background:#cbd5e1;
+    }
+    .timeline-item{
+      position:relative;
+      display:grid;
+      grid-template-columns:28px 1fr;
+      gap:18px;
+      margin:0 0 30px;
+    }
+    .timeline-marker{
+      position:relative;
+      z-index:1;
+      width:16px;
+      height:16px;
+      margin:8px 0 0 6px;
+      border:3px solid #3730a3;
+      border-radius:50%;
+      background:#fff;
+    }
+    .timeline-content{
+      padding:0 0 24px;
+      border-bottom:1px solid #e2e8f0;
+    }
+    .timeline-content h2{
+      margin:0 0 14px;
+      color:#1a2744;
+      font-size:24px;
+      line-height:1.5;
+    }
+    .timeline-content p{
+      margin:0 0 10px;
+      color:#2f3b4d;
+      line-height:1.9;
+      text-align:justify;
+    }
+    .timeline-content strong{
+      color:#293657;
+      font-weight:800;
+    }
+    .timeline-final .timeline-marker{
+      border-color:#1a2744;
+      background:#1a2744;
+    }
+    .timeline-final .timeline-content{
+      padding:24px 26px;
+      border:1px solid #cbd5e1;
+      border-left:5px solid #1a2744;
+      border-radius:10px;
+      background:#f8fafc;
+    }
+    .timeline-final .timeline-content h2{
+      font-size:26px;
+    }
+    @media print{
+      .paper{max-width:none;padding:0;}
+      .timeline::before{background:#94a3b8;}
+      .timeline-item{break-inside:avoid;}
+      .timeline-content h2{font-size:16pt;}
+      .timeline-content p{font-size:11.5pt;line-height:1.7;}
+    }
+    @media (max-width:700px){
+      .paper{padding:30px 20px 40px;}
+      .report-title{text-align:left;font-size:29px;}
+      .original-title,.method-line{text-align:left;}
+      .report-meta{justify-content:flex-start;}
+      .timeline-item{gap:12px;}
+      .timeline-content h2{font-size:21px;}
+      .timeline-content p{font-size:16px;}
+      .timeline-final .timeline-content{padding:20px 18px;}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="site-header-inner">
+      <span class="site-header-label">彭頌哲自學歷程記錄網站</span>
+    </div>
+  </div>
+  <div class="page-nav">
+    <a class="nav-btn" href="../index.html">← 返回首頁</a>
+    <a class="nav-btn" href="index.html">← 返回議題頁</a>
+  </div>
+  <div class="wrap">
+    <article class="paper">
+      <h1 class="report-title">《為什麼偏偏是他？》：愛情哲學觀點的形成與修正歷程</h1>
+      <p class="original-title">《為什麼偏偏是他？》頌哲的愛情哲學思考歷程圖</p>
+      <p class="method-line">呈現方式：原本想法 → 看到的例子 → 產生疑問 → 發現漏洞 → 修正觀點</p>
+      
+      <div class="report-meta">
+        <span>類型｜哲學思辨與學習歷程</span>
+        <span>完成日期｜2026年7月27日</span>
+        <span>狀態｜階段完成</span>
+      </div>
+    
+      <div class="timeline">
+      <section class="timeline-item">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>1. 起點：真實婚姻案例</h2>
+      <p><strong>看到的故事：</strong>已婚男性與妻子多年缺乏情感交流，後來遇見另一個讓自己快樂、被理解的人；妻子在他準備離開時突然強烈挽留。</p>
+      <p><strong>產生的問題：</strong>這真的是愛嗎？如果愛他，為什麼多年沒有情感交流？如果不愛他，為什麼現在又如此痛苦？</p>
+      <p><strong>第一個切入：</strong>開始懷疑愛、依附、習慣、責任、害怕失去之間的差異。</p>
+      </div></section>
+      <section class="timeline-item">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>2. 第一條線：愛與依附</h2>
+      <p><strong>原本想法：</strong>很多人以為自己在愛，其實可能只是害怕失去、害怕孤單、害怕改變、害怕失去熟悉生活。</p>
+      <p><strong>遇到的問題：</strong>如果這些都不是愛，那愛本身到底是什麼？</p>
+      <p><strong>問題轉向：</strong>從「愛和依附有什麼不同」轉向「愛到底是什麼」，再走向「人為什麼會愛上一個人」。</p>
+      </div></section>
+      <section class="timeline-item">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>3. 第二條線：為什麼偏偏是他？</h2>
+      <p><strong>新的核心問題：</strong>如果愛真的存在，為什麼愛上的偏偏是某個特定的人？</p>
+      <p><strong>開始尋找解釋：</strong>條件、優點、價值觀、長期相處，是否能說明愛的產生？</p>
+      <p><strong>研究方向確立：</strong>不只是問愛是什麼，而是問「愛能不能被理性解釋」。</p>
+      </div></section>
+      <section class="timeline-item">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>4. 第三條線：條件論</h2>
+      <p><strong>原本想法：</strong>愛可能來自條件，例如外表、個性、價值觀、能力、生活方式。條件越符合期待，理論上越容易被吸引。</p>
+      <p><strong>反例與疑問：</strong>如果愛真的由條件決定，那條件更好、更適合、更符合標準的人出現時，愛是否應該轉移？</p>
+      <p><strong>修正觀點：</strong>條件與愛有關，但不是完整答案；條件可能提高愛發生的可能性，卻不能直接決定愛。</p>
+      </div></section>
+      <section class="timeline-item">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>5. 第四條線：優點論</h2>
+      <p><strong>原本想法：</strong>愛可能來自優點，例如善良、幽默、體貼、負責任。人確實會被優點吸引。</p>
+      <p><strong>反例與思想實驗：</strong>善良的人很多，為什麼偏偏是他？如果每天觀察一個人的優點會愛上他，那十個人呢？一百個人呢？</p>
+      <p><strong>修正觀點：</strong>優點可以解釋欣賞，但未必能解釋愛；有些優點可能是在愛上後才被放大。</p>
+      </div></section>
+      <section class="timeline-item">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>6. 第五條線：特殊性</h2>
+      <p><strong>觀察到的現象：</strong>曾經愛過的人，即使分開多年、不想復合，仍可能在生命中很特別、很難被取代。</p>
+      <p><strong>產生的疑問：</strong>是因為他本來就特別，所以我愛他？還是因為我愛他，所以他變得特別？</p>
+      <p><strong>形成重要觀點：</strong>不是因為他特別所以我愛他，而是因為我愛他所以他變得特別。</p>
+      </div></section>
+      <section class="timeline-item">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>7. 第六條線：理性與非理性</h2>
+      <p><strong>原本傾向：</strong>愛非常不理性。因為人很難決定自己今天開始愛誰，也很難命令自己今天開始不愛誰。</p>
+      <p><strong>語言上的觀察：</strong>人們常說「不小心喜歡上」「墜入愛河」「發現自己愛上」，卻很少說「我決定愛上某個人」。</p>
+      <p><strong>暫時觀點：</strong>人們往往不是決定自己愛上誰，而是發現自己愛上了誰。</p>
+      <p><strong>修正：</strong>我沒有否定理性。價值觀、條件、信任、相處方式仍然會影響愛發生的可能性。</p>
+      <p><strong>比較平衡的觀點：</strong>愛的大部分無法被理性完全解釋，但理性因素確實會影響愛發生的可能性。</p>
+      </div></section>
+      <section class="timeline-item">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>8. 第七條線：慢慢愛上問題</h2>
+      <p><strong>最大挑戰：</strong>很多人說自己是慢慢愛上的，例如同事或朋友相處多年後才發展成戀愛關係。</p>
+      <p><strong>拆解問題：</strong>所謂慢慢愛上，到底是在描述愛慢慢形成、慢慢被察覺，還是愛形成後慢慢壯大？</p>
+      <p><strong>10%例子：</strong>如果有人說一開始10%、後來20%、30%，那10%到底是什麼？如果10%已經是愛，後面可能是壯大，不是形成。</p>
+      <p><strong>提出其他解釋：</strong>慢慢形成、慢慢察覺、慢慢壯大、依賴增加、熟悉感增加、回憶重構、錯誤歸因。</p>
+      </div></section>
+      <section class="timeline-item">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>9. 第八條線：不能否定主觀經驗</h2>
+      <p><strong>進一步懷疑：</strong>慢慢愛上也可能是依賴增加、熟悉感增加、回憶重構、錯誤歸因。</p>
+      <p><strong>關鍵轉折：</strong>如果有人很確定地說「我就是慢慢愛上他的」，我有資格否定他的感受嗎？</p>
+      <p><strong>修正觀點：</strong>我可以懷疑一種解釋，但不能因為存在其他解釋，就直接否定當事人的經驗。</p>
+      </div></section>
+      <section class="timeline-item">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>10. 第九條線：人真的知道原因嗎？</h2>
+      <p><strong>新的問題：</strong>人們真的知道自己為什麼愛上一個人嗎？</p>
+      <p><strong>例子：</strong>有人說因為善良，但也可能是愛上後才特別注意到善良；有人說因為長期相處，但也可能是愛產生後才回頭賦予那些相處特殊意義。</p>
+      <p><strong>重要區分：</strong>感受到愛，不等於理解愛的原因。</p>
+      <p><strong>新的懷疑：</strong>人們所說的原因，可能只是事後對愛的解釋，未必就是真正原因。</p>
+      </div></section>
+      <section class="timeline-item timeline-final">
+      <div class="timeline-marker" aria-hidden="true"></div>
+      <div class="timeline-content">
+      <h2>11. 目前形成的觀點</h2>
+      <p>愛的大部分無法被理性完全解釋，但理性因素確實會影響愛發生的可能性。</p>
+      <p>條件、優點、價值觀、長期相處都重要，但都不足以完整回答「為什麼偏偏是他」。</p>
+      <p>人們往往不是決定自己愛上誰，而是發現自己愛上了誰。</p>
+      <p>不是因為他特別所以我愛他，而是因為我愛他所以他變得特別。</p>
+      <p>我可以懷疑一種解釋，但不能直接否定當事人的經驗。</p>
+      <p><strong>最大的收穫：</strong>不是定義出愛，而是在思考、懷疑、發現漏洞、修正觀點的過程中，逐漸形成屬於自己的看法。做報告前後的改變，就是最大的收穫。</p>
+      </div></section>
+      </div>
+    </article>
+  </div>
+</body>
+</html>
