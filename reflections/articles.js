@@ -43,5 +43,14 @@ window.REFLECTION_ARTICLES = [
       "從心理學觀點分析親密關係中的愛，並嘗試區分愛、依附、承諾、責任、恐懼與習慣之間的差異。",
     url: "love-attachment-commitment-responsibility-fear.html",
     status: "階段完成"
+  },
+  {
+    date: "2026-07-27",
+    title: "為什麼偏偏是他？——論愛能否被理性解釋",
+    tags: ["哲學思辨", "愛的本質", "理性與感性", "個人觀點"],
+    description:
+      "從條件、長期相處與優點等常見解釋出發，持續追問人為什麼會愛上某一個特定的人，以及愛是否能被理性完整解釋。",
+    url: "why-him-love-rationally-explained.html",
+    status: "階段完成"
   }
 ];
