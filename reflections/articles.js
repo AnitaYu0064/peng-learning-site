@@ -45,9 +45,9 @@ window.REFLECTION_ARTICLES = [
     status: "階段完成"
   },
   {
-    date: "2026-07-27",
+    date: "2026-06-12",
     title: "為什麼偏偏是他？——論愛能否被理性解釋",
-    tags: ["哲學思辨", "愛的本質", "理性與感性", "個人觀點"],
+    tags: ["哲學思辨", "愛的本質", "理性與感性", "心理學、哲學交叉探討","個人觀點"],
     description:
       "從條件、長期相處與優點等常見解釋出發，持續追問人為什麼會愛上某一個特定的人，以及愛是否能被理性完整解釋。",
     url: "why-him-love-rationally-explained.html",
