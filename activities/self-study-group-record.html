@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>自學團聚會與交流紀錄｜彭頌哲自學歷程</title>
+  <style>
+    :root{
+      --bg:#f7f8fa;
+      --paper:#fff;
+      --text:#1f2937;
+      --sub:#475569;
+      --line:#e2e8f0;
+      --accent:#1d4ed8;
+      --accent-dark:#1a2744;
+      --soft:#eff6ff;
+      --shadow:0 3px 12px rgba(15,23,42,.06),0 14px 34px rgba(26,39,68,.07);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.9;
+      font-size:18px;
+    }
+    .site-header{background:var(--accent-dark);padding:14px 24px;box-shadow:0 2px 14px rgba(26,39,68,.22);}
+    .site-header-inner{max-width:1120px;margin:0 auto;}
+    .site-header-label{color:rgba(255,255,255,.68);font-size:13px;font-weight:700;letter-spacing:.4px;}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px 20px 72px;}
+    .page-nav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;}
+    .nav-btn{
+      display:inline-flex;text-decoration:none;background:var(--accent);color:#fff;
+      padding:10px 18px;border-radius:9px;font-size:15px;font-weight:750;
+      box-shadow:0 3px 10px rgba(29,78,216,.2);
+    }
+    .nav-btn.outline{background:#fff;color:var(--accent);border:1px solid #bfdbfe;box-shadow:none;}
+    .hero{
+      background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--accent-dark);
+      border-radius:0 14px 14px 0;padding:34px 34px 30px;box-shadow:var(--shadow);margin-bottom:22px;
+    }
+    .kicker{color:var(--accent);font-size:13px;font-weight:850;letter-spacing:.08em;margin-bottom:7px;}
+    h1{margin:0 0 10px;color:var(--accent-dark);font-size:40px;line-height:1.3;}
+    .meta{color:#64748b;font-size:15px;font-weight:700;margin-bottom:14px;}
+    .hero p{margin:0;max-width:920px;color:var(--sub);font-size:18px;}
+    .section{
+      background:var(--paper);border:1px solid var(--line);border-radius:14px;
+      padding:28px 28px;box-shadow:var(--shadow);margin-bottom:22px;
+    }
+    .section h2{
+      margin:0 0 16px;padding-left:13px;border-left:5px solid var(--accent);
+      color:var(--accent-dark);font-size:27px;line-height:1.4;
+    }
+    .section p{margin:0 0 14px;text-align:justify;}
+    .points{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px;
+    }
+    .point{
+      padding:16px;border:1px solid var(--line);border-radius:10px;background:#f8fafc;
+    }
+    .point strong{display:block;color:#273757;margin-bottom:5px;}
+    .point span{color:var(--sub);font-size:15px;line-height:1.7;}
+    .gallery{
+      display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px;
+    }
+    .photo-card{
+      overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#fff;
+      box-shadow:0 4px 14px rgba(15,23,42,.05);
+    }
+    .photo-card img{
+      width:100%;height:340px;object-fit:cover;display:block;background:#eef2f7;
+    }
+    .photo-card.portrait img{height:480px;}
+    .photo-content{padding:16px 17px 18px;}
+    .photo-content h3{margin:0 0 6px;color:#273757;font-size:19px;line-height:1.45;}
+    .photo-content p{margin:0;color:var(--sub);font-size:15px;line-height:1.75;text-align:left;}
+    .reflection{
+      padding:20px 22px;border-left:5px solid var(--accent-dark);
+      background:var(--soft);border-radius:9px;color:#243b68;
+    }
+    .footer{text-align:center;color:#64748b;font-size:14px;margin-top:26px;}
+    @media (max-width:900px){
+      .points{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:700px){
+      body{font-size:17px}
+      .wrap{padding:18px 14px 52px}
+      .hero,.section{padding:25px 20px}
+      h1{font-size:30px}
+      .section h2{font-size:24px}
+      .points,.gallery{grid-template-columns:1fr}
+      .photo-card img,.photo-card.portrait img{height:auto;max-height:none;object-fit:contain}
+    }
+  </style>
+</head>
+<body>
+  <div class="site-header">
+    <div class="site-header-inner">
+      <span class="site-header-label">彭頌哲自學歷程記錄網站</span>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <nav class="page-nav">
+      <a class="nav-btn" href="../index.html">← 返回首頁</a>
+      <a class="nav-btn outline" href="index.html">← 返回活動紀錄頁</a>
+    </nav>
+
+    <header class="hero">
+      <div class="kicker">自主學習社群參與</div>
+      <h1>自學團聚會與交流紀錄</h1>
+      <div class="meta">活動期間｜114學年度第2學期</div>
+      <p>本頁整理頌哲參與自學團聚會、團體討論、小組交流、個人準備與體驗活動的照片。這些紀錄呈現他如何在不同場域中聆聽他人、說明觀點、與同儕互動，並透過實際參與累積學習經驗。</p>
+    </header>
+
+    <section class="section">
+      <h2>學習內容與參與方式</h2>
+      <p>自學團提供了不同於個人閱讀與觀看影片的學習情境。頌哲能在實際交流中聽見不同年齡、背景與立場的看法，也需要練習把自己的想法說清楚，回應他人的問題，並在討論後重新檢查原本的觀點。</p>
+      <div class="points">
+        <div class="point"><strong>聆聽不同觀點</strong><span>從團體分享與對話中，理解同一問題可能有不同的解釋。</span></div>
+        <div class="point"><strong>練習表達</strong><span>將原本較抽象的想法，整理成其他人能理解的說法。</span></div>
+        <div class="point"><strong>接受回饋</strong><span>透過提問與討論，發現論述中不清楚或需要補充的地方。</span></div>
+        <div class="point"><strong>同儕互動</strong><span>在共同活動與生活情境中，累積合作、參與及關係經驗。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>團體聚會與學習場域</h2>
+      <div class="gallery">
+        <article class="photo-card">
+          <img src="selfstudy01.jpg" alt="自學團成員在學習空間中聚會" loading="lazy">
+          <div class="photo-content">
+            <h3>多元成員共同參與</h3>
+            <p>在開放的學習空間中，不同成員各自進行討論、創作與交流，呈現自學團多元且彈性的活動樣貌。</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="selfstudy02.jpg" alt="自學團成員在桌邊交流與進行活動" loading="lazy">
+          <div class="photo-content">
+            <h3>共同場域中的學習交流</h3>
+            <p>同一空間內可以同時進行個人工作、小組討論與生活互動，學習不只發生在單一形式的課堂中。</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="selfstudy03.jpg" alt="自學團全體聆聽成員發言" loading="lazy">
+          <div class="photo-content">
+            <h3>全體分享與專注聆聽</h3>
+            <p>成員輪流說明想法，其他人透過聆聽、觀察與回應，理解不同人的經驗及立場。</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="selfstudy04.jpg" alt="自學團以圓圈形式進行團體討論" loading="lazy">
+          <div class="photo-content">
+            <h3>團體討論與觀點交換</h3>
+            <p>圓圈式座位讓成員彼此看見，也使發言、提問與回應更容易形成雙向交流。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>小組討論與個人準備</h2>
+      <div class="gallery">
+        <article class="photo-card">
+          <img src="selfstudy05.jpg" alt="自學團小組成員圍桌討論" loading="lazy">
+          <div class="photo-content">
+            <h3>小組議題討論</h3>
+            <p>較小的討論形式讓每位成員有更多發言機會，也能針對問題持續追問與交換想法。</p>
+          </div>
+        </article>
+        <article class="photo-card portrait">
+          <img src="selfstudy06.jpg" alt="頌哲使用平板進行個人準備" loading="lazy">
+          <div class="photo-content">
+            <h3>個人閱讀與思考準備</h3>
+            <p>在團體活動之外，也保留個人閱讀、查找資料與整理思緒的時間，作為後續討論的準備。</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="selfstudy09.jpg" alt="自學團成員進行小組對話" loading="lazy">
+          <div class="photo-content">
+            <h3>在對話中整理觀點</h3>
+            <p>透過較輕鬆的交流情境，練習把想法說出來，也從他人的問題中重新理解自己的立場。</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="selfstudy10.jpg" alt="自學團小組成員進行交流" loading="lazy">
+          <div class="photo-content">
+            <h3>交流與回饋</h3>
+            <p>討論不只為了說服對方，也能幫助自己辨認原本沒有注意到的角度與盲點。</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="selfstudy14.jpg" alt="自學團成員圍桌進行深入討論" loading="lazy">
+          <div class="photo-content">
+            <h3>較深入的主題討論</h3>
+            <p>在熟悉的場域中持續討論，使抽象問題能透過例子、提問與回應逐漸變得清楚。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>共同活動與生活體驗</h2>
+      <div class="gallery">
+        <article class="photo-card">
+          <img src="selfstudy07.jpg" alt="自學團成員共同進行桌上活動" loading="lazy">
+          <div class="photo-content">
+            <h3>共同參與體驗活動</h3>
+            <p>透過實際操作與觀察，成員在活動中練習規則理解、互動與即時回應。</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="selfstudy08.jpg" alt="自學團成員在學習空間中進行小組活動" loading="lazy">
+          <div class="photo-content">
+            <h3>小組合作與分工</h3>
+            <p>共同活動讓學習不只停留在文字與討論，也包含合作、等待、觀察與問題處理。</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="selfstudy11.jpg" alt="自學團成員參與團體體驗活動" loading="lazy">
+          <div class="photo-content">
+            <h3>在體驗中建立共同經驗</h3>
+            <p>團體活動創造共同話題與經驗，也讓成員在正式討論之外建立互動與連結。</p>
+          </div>
+        </article>
+        <article class="photo-card">
+          <img src="selfstudy12.jpg" alt="自學團大型團體體驗活動" loading="lazy">
+          <div class="photo-content">
+            <h3>大型團體活動參與</h3>
+            <p>在較多人共同參與的情境中，需要注意流程、聽取說明並配合團體節奏。</p>
+          </div>
+        </article>
+        <article class="photo-card portrait">
+          <img src="selfstudy13.jpg" alt="自學團成員共同搭乘大眾交通工具" loading="lazy">
+          <div class="photo-content">
+            <h3>共同移動與生活安排</h3>
+            <p>活動中的交通移動與行程安排，也是團體生活的一部分，包含時間、秩序與彼此照應。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>學習收穫</h2>
+      <div class="reflection">
+        自學團讓頌哲接觸到更多不同年齡與背景的人，也提供實際表達與接受回饋的機會。透過個人準備、小組討論、全體分享與共同活動，他能在真實互動中檢查自己的想法，理解不同觀點，並逐漸建立較有條理的表達方式。
+      </div>
+    </section>
+
+    <footer class="footer">自學團聚會與交流紀錄｜114學年度第2學期</footer>
+  </main>
+</body>
+</html>
