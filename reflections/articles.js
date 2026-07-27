@@ -34,5 +34,14 @@ window.REFLECTION_ARTICLES = [
       "說明哲學對頌哲而言不是背誦哲學史，而是一種持續思考、懷疑、分析並形成自己觀點的方式，也整理哲學如何真正進入他的生活與判斷。",
     url: "what-philosophy-means-to-me.html",
     status: "階段完成"
+  },
+  {
+    date: "2026-06-07",
+    title: "如何區分愛、依附、承諾、責任與恐懼？",
+    tags: ["心理學", "親密關係", "依附理論", "愛情三角理論", "自我分化"],
+    description:
+      "從心理學觀點分析親密關係中的愛，並嘗試區分愛、依附、承諾、責任、恐懼與習慣之間的差異。",
+    url: "love-attachment-commitment-responsibility-fear.html",
+    status: "階段完成"
   }
 ];
